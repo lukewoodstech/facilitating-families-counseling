@@ -6,10 +6,9 @@ import { url, currentPath } from '../lib/url';
 
 const links = [
   { href: '/', label: 'Home' },
-  { href: '/#about', label: 'About Me' },
+  { href: '/about', label: 'About Me' },
   { href: '/services', label: 'Scope of Practice' },
   { href: '/licenses-payments', label: 'Licenses & Payments' },
-  { href: '/contact', label: 'Connect With Me' },
 ];
 const here = currentPath(Astro.url.pathname);
 const isActive = (href: string) => (href.includes('#') ? false : href === '/' ? here === '/' : here === href || here.startsWith(`${href}/`));

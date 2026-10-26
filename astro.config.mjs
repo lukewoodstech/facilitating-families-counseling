@@ -20,8 +20,8 @@ export default defineConfig({
   site: onGitHubSubpath ? 'https://lukewoodstech.github.io' : CUSTOM_DOMAIN,
   base,
   output: 'static',
-  // About Me now lives on the home page; keep the old URL working.
-  redirects: { '/about': `${base === '/' ? '' : base}/#about` },
+  // Connect With Me lives on the About Me page; keep the old URL working.
+  redirects: { '/contact': `${base === '/' ? '' : base}/about#connect` },
   trailingSlash: 'ignore',
   vite: { plugins: [tailwindcss()] },
   integrations: [sitemap()],

@@ -14,14 +14,14 @@ far better. Everything below was built as described; the "Decisions to confirm" 
 | Route | Old Google Site page | Content source |
 | --- | --- | --- |
 | `/` | /home | `src/content/pages/home.md` + service summaries |
-| `/#about` | NEW ("About Me" section on the home page; `/about` redirects here) | `src/content/pages/about.md` (placeholders only) |
+| `/about` | NEW ("About Me": her photo + short about on top, Connect With Me below) | `src/content/pages/about.md` + `contact.md` (placeholders only) |
 | `/services` | /scope-of-practice (heading kept: "Scope of Practice") | `src/content/pages/services.md` + services collection |
 | `/services/eating-disorders` | /scope-of-practice/eating-disorders | `src/content/services/eating-disorders.md` |
 | `/services/couples-and-family` | /scope-of-practice/couples-and-family | `src/content/services/couples-and-family.md` |
 | `/services/individual-support` | /scope-of-practice/individual-support | `src/content/services/individual-support.md` |
 | `/services/trauma` | /scope-of-practice/trauma | `src/content/services/trauma.md` |
 | `/licenses-payments` | /licenses-payments | `src/content/pages/licenses-payments.md` |
-| `/contact` | (Connect With Me block) | `src/content/pages/contact.md` |
+| `/contact` | (Connect With Me block) | redirects to `/about#connect` |
 | `/404` | — | `src/pages/404.astro` |
 
 Redirect map for later (old → new): `/scope-of-practice` → `/services`,
@@ -131,11 +131,11 @@ Left exactly as written (flagged, not obvious enough to touch): `patients who;`,
 - Everything else on the site is her page copy under her own headings.
 
 ### Text that is NOT Emree's (review list)
-1. **Nav labels**: "Home", "About Me", "Scope of Practice", "Licenses & Payments", "Connect With Me" ("About Me" is the new page name; the rest match her headings/nav)
+1. **Nav labels**: "Home", "About Me", "Scope of Practice", "Licenses & Payments" ("About Me" is the new page name; the rest match her nav)
 2. **Mobile menu button**: "Menu" / "Close". **Skip link**: "Skip to content"
 3. **Hero buttons**: "Connect With Me", "Scope of Practice" (her headings reused as labels)
 4. **Telehealth sentence** (requested): "All sessions are held virtually by telehealth for clients in Minnesota, Wisconsin, Wyoming, Idaho, and Utah." On Licenses & Payments and Connect With Me.
-5. **About Me section** (home page): heading "About Me" + the `[TODO]` placeholders
+5. **About Me page**: heading "About Me" + the `[TODO]` placeholders
 6. **Service pages**: "Scope of Practice" heading over the links to the other three services (her heading, my placement)
 7. **Footer**: crisis line "If you are in crisis or thinking about suicide, call or text 988 (Suicide & Crisis Lifeline), available 24/7. If you are in immediate danger, call 911."; "© 2026 Facilitating Families Counseling, LLC"; "Connect With Me" / "Email:" / "Phone:" (hers)
 8. **404 page**: "Page not found", buttons "Home", "Connect With Me"
@@ -147,7 +147,7 @@ Left exactly as written (flagged, not obvious enough to touch): `patients who;`,
 ### Thin or empty pages (not filled)
 - **Trauma**: one paragraph. A `[TODO]` asks if she wants to say more.
 - **Trauma card blurb**: her site shows dots. `[TODO]` on the card.
-- **About Me** (home page section): no copy exists; placeholders only. Her business card shows "EmRee M. Pugmire, LMFT, Licensed Marriage & Family Therapist" and the values "Intentionality · Curiosity · Sustainability", not used because the site is the only copy source.
+- **About Me**: no copy exists; placeholders only. Her business card shows "EmRee M. Pugmire, LMFT, Licensed Marriage & Family Therapist" and the values "Intentionality · Curiosity · Sustainability", not used because the site is the only copy source.
 - **Connect With Me**: email and phone only, as on her site. One optional `[TODO]` for response time.
 - **Licenses & Payments**: no fees, policies, license numbers on her site; placeholders.
 

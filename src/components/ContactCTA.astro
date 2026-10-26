@@ -11,7 +11,7 @@ interface Props { as?: 'h1' | 'h2'; showTelehealth?: boolean }
 const { as: Tag = 'h2', showTelehealth = false } = Astro.props;
 const photo = original('photo-hand-seedling.jpg');
 ---
-<section class="relative isolate overflow-hidden bg-leaf-soft">
+<section id="connect" class="relative isolate overflow-hidden bg-leaf-soft scroll-mt-24">
   <Divider color="text-cream" position="top" />
   <Image src={photo} alt="" widths={[640, 1280, 1920]} sizes="100vw" format="webp" class="absolute inset-0 -z-20 h-full w-full object-cover opacity-60" loading="lazy" />
   <div class="absolute inset-0 -z-10 bg-gradient-to-r from-cream/95 via-cream/80 to-leaf-soft/55" aria-hidden="true"></div>

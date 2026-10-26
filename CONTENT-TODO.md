@@ -3,7 +3,7 @@
 Each item matches a visible `[TODO]` on the site. When the real content arrives, add it
 to the content file named and delete the matching `<Placeholder …/>`.
 
-## About Me section on the home page (`src/pages/index.astro`, `src/content/pages/about.md`)
+## About Me (`src/pages/about.astro`, `src/content/pages/about.md`)
 - [ ] Full name and credentials as she wants them shown (her business card reads "EmRee M. Pugmire, LMFT, Licensed Marriage & Family Therapist")
 - [ ] Headshot: portrait, 4:5 or square, at least 1200px on the short side → `public/images/`
 - [ ] Short about section, in her words (who she is, how long she has practiced, how she works)
@@ -18,7 +18,7 @@ to the content file named and delete the matching `<Placeholder …/>`.
 - [ ] License numbers per state (optional)
 - [ ] Confirm insurer names ("Regents" → Regence?)
 
-## Connect With Me (`src/content/pages/contact.md`)
+## Connect With Me, on the About Me page (`src/content/pages/contact.md`)
 - [ ] Typical response time (optional)
 
 ## Trauma page (`src/content/services/trauma.md`)

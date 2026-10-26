@@ -1,0 +1,48 @@
+---
+/**
+ * About Me: her photo and a short about section on top (placeholders until Emree
+ * sends copy), then Connect With Me with email, phone and the telehealth line.
+ */
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import Placeholder from '../components/Placeholder.astro';
+import PlaceholderImage from '../components/PlaceholderImage.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import Button from '../components/Button.astro';
+
+const page = await getEntry('pages', 'about');
+if (!page) throw new Error('Missing src/content/pages/about.md');
+const contact = await getEntry('pages', 'contact');
+if (!contact) throw new Error('Missing src/content/pages/contact.md');
+const d = page.data;
+---
+<BaseLayout title={d.title} description={d.description}>
+  <PageHero title={d.heading ?? d.title}>
+    <p class="mt-4 font-display text-lead italic text-ink-soft"><Placeholder inline text="Emree's full name and credentials" /></p>
+  </PageHero>
+
+  <Section>
+    <div class="grid items-start gap-10 md:grid-cols-[0.7fr_1.3fr] lg:gap-16">
+      <div class="mx-auto w-full max-w-xs md:max-w-none" data-reveal>
+        <PlaceholderImage src="/images/placeholders/about-headshot.svg" alt="Placeholder for a portrait of Emree" width={960} height={1200} todo="Headshot of Emree (portrait, 4:5 or square, at least 1200px on the short side)" eager />
+      </div>
+      <div class="space-y-4" data-reveal style="--reveal-delay:120ms">
+        <Placeholder text="Short about section in Emree's words: who she is, how long she has been practicing, where she trained, and how she works with clients" />
+        <Placeholder text="Credentials and license type(s). License numbers per state if she wants them shown" />
+        <div class="pt-4"><Button href="/about#connect">Connect With Me</Button></div>
+      </div>
+    </div>
+  </Section>
+
+  <ContactCTA showTelehealth />
+
+  {contact.data.todos.length > 0 && (
+    <Section size="sm">
+      <div class="max-w-xl space-y-3" data-reveal>
+        {contact.data.todos.map((t) => <Placeholder text={t} />)}
+      </div>
+    </Section>
+  )}
+</BaseLayout>
