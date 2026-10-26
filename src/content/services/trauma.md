@@ -9,4 +9,4 @@ treeAlt: Illustration of a tree with green and autumn leaves and deep roots
 todos:
   - "This page is thin (one paragraph on her site). Does Emree want to say more about her trauma work?"
 ---
-My preferred method for treating trauma is to use the [Lifespan Integration Method](https://www.lifespanintegration.us/origins-and-development-of-lifespan-integration/). I believe in brain plasticity and the ability for the body to create new neural pathways that facilitate new interaction patterns. Trauma does not have to keep playing out in your brain or in your life or in your relationships.
+My preferred method for treating trauma is to use the **[Lifespan Integration Method](https://www.lifespanintegration.us/origins-and-development-of-lifespan-integration/)**. I believe in brain plasticity and the ability for the body to create new neural pathways that facilitate new interaction patterns. Trauma does not have to keep playing out in your brain or in your life or in your relationships.

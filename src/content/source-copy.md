@@ -3,7 +3,8 @@
 Captured 2026-10-26 from the live Google Site at
 `https://sites.google.com/view/facilitatingfamiliescounseling/`.
 
-This file is the **raw, uncorrected** source of truth. Typos and stray spacing are
+This file is the **raw, uncorrected** source of truth. Inline bold from her pages is carried into
+the service markdown files as `**bold**` (see `src/content/services/*.md`). Typos and stray spacing are
 preserved exactly as published so they can be checked. The corrected versions used on
 the site live in `src/content/pages/*.md` and `src/content/services/*.md`; every
 correction is listed in `PLAN.md` under "Typo fixes".
