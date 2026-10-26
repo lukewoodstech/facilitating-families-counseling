@@ -3,11 +3,11 @@ title: Licenses & Payments
 description: Licenses and payment options at Facilitating Families Counseling. Virtual sessions for clients in Minnesota, Wisconsin, Wyoming, Idaho, and Utah.
 heading: Licenses & Payments
 states:
-  - { name: Minnesota, image: state-minnesota.png }
-  - { name: Wisconsin, image: state-wisconsin.png }
-  - { name: Wyoming, image: state-wyoming.png }
-  - { name: Idaho, image: state-idaho.png }
-  - { name: Utah, image: state-utah.png }
+  - Minnesota
+  - Wisconsin
+  - Wyoming
+  - Idaho
+  - Utah
 paymentOptions:
   - Ecclesiastical Pay
   - Private Pay

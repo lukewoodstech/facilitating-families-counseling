@@ -33,7 +33,7 @@ const pages = defineCollection({
     description: z.string(),
     heading: z.string().optional(),
     hero: z.object({ headline: z.string() }).optional(),
-    states: z.array(z.object({ name: z.string(), image: z.string() })).optional(),
+    states: z.array(z.string()).optional(),
     paymentOptions: z.array(z.string()).optional(),
     insurers: z.array(z.string()).optional(),
     todos: z.array(z.string()).default([]),

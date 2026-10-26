@@ -1,0 +1,31 @@
+---
+/**
+ * One licensed state: a clean, complete outline (US Census boundaries, fitted to
+ * the same box for every state) with Emree's logo tree laid over it at the same
+ * size and position in every card.
+ */
+import { Image } from 'astro:assets';
+import mark from '../assets/logo-mark-transparent.png';
+import states from '../data/states.json';
+interface Props { name: string; index?: number }
+const { name, index = 0 } = Astro.props;
+const state = states.find((s) => s.name === name);
+if (!state) throw new Error(`No outline for state "${name}" in src/data/states.json`);
+---
+<li class="flex flex-col items-center rounded-card border border-sand bg-white p-5 text-center shadow-card" data-reveal style={`--reveal-delay:${index * 70}ms`}>
+  <div class="relative aspect-square w-full max-w-[13rem]">
+    <svg viewBox={state.viewBox} class="absolute inset-0 h-full w-full" role="img" aria-label={`Outline of ${name}`}>
+      <path d={state.d} fill="var(--color-leaf-soft)" fill-opacity="0.55" stroke="var(--color-teal)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" />
+    </svg>
+    <Image
+      src={mark}
+      alt=""
+      width={240}
+      densities={[1, 2]}
+      format="webp"
+      class="absolute left-1/2 top-1/2 w-[62%] -translate-x-1/2 -translate-y-1/2 drop-shadow-[0_2px_6px_rgb(255_255_255/0.9)]"
+      loading="lazy"
+    />
+  </div>
+  <span class="mt-4 font-display text-xl text-teal-deep">{name}</span>
+</li>
