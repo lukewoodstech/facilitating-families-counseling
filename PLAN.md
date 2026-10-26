@@ -159,7 +159,7 @@ Left exactly as written (flagged, not obvious enough to touch): `patients who;`,
 - `state-*.png` (downloaded, no longer used: they were cropped unevenly and Utah's tree was clipped). The state cards are now built from clean US Census outlines (`scripts/make-states.mjs` → `src/data/states.json`) with her logo tree laid over each one at the same size
 - `photo-hand-seedling.jpg` (soft background behind Connect With Me, as on her site)
 - `home-card-*.png`, `bg-teal-blur.jpg` (downloaded, unused)
-- Derived for layout only: `src/assets/logo-wordmark-trimmed.png` (transparent margins trimmed) and `src/assets/logo-mark-transparent.png` (her mark with its white background removed by un-blending the edge pixels; no shapes redrawn).
+- Derived for layout only: `src/assets/logo-wordmark-trimmed.png` (transparent margins trimmed), `src/assets/logo-wordmark-bold.png` (same wordmark with the lettering strokes thickened by ~2px for legibility in the nav; tree untouched, no letterforms redrawn) and `src/assets/logo-mark-transparent.png` (her mark with its white background removed by un-blending the edge pixels; no shapes redrawn).
 - Still needed: headshot for About Me.
 
 ## 7. Telehealth
