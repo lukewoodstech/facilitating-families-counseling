@@ -136,7 +136,7 @@ Left exactly as written (flagged, not obvious enough to touch): `patients who;`,
 1. **Nav labels**: "Home", "About Me", "Scope of Practice", "Licenses & Payments" ("About Me" is the new page name; the rest match her nav)
 2. **Mobile menu button**: "Menu" / "Close". **Skip link**: "Skip to content"
 3. **Hero buttons**: "Connect With Me", "Scope of Practice" (her headings reused as labels)
-4. **Telehealth sentence** (requested): "All sessions are held virtually by telehealth for clients in Minnesota, Wisconsin, Wyoming, Idaho, and Utah." On Licenses & Payments and Connect With Me.
+4. **Telehealth sentence** (requested): "All sessions are held virtually by telehealth." On Licenses & Payments and Connect With Me.
 5. **About Me page**: heading "About Me" + the `[TODO]` placeholders
 6. **Service pages**: "Scope of Practice" heading over the links to the other three services (her heading, my placement)
 7. **Footer**: crisis line "If you are in crisis or thinking about suicide, call or text 988 (Suicide & Crisis Lifeline), available 24/7. If you are in immediate danger, call 911."; "© 2026 Facilitating Families Counseling, LLC"; "Connect With Me" / "Email:" / "Phone:" (hers)
