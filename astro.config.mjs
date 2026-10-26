@@ -14,11 +14,14 @@ const REPO_NAME = 'facilitating-families-counseling';
 const CUSTOM_DOMAIN = 'https://facilitatingfamiliescounseling.com';
 const target = process.env.DEPLOY_TARGET ?? 'local';
 const onGitHubSubpath = target === 'github';
+const base = onGitHubSubpath ? `/${REPO_NAME}` : '/';
 
 export default defineConfig({
   site: onGitHubSubpath ? 'https://lukewoodstech.github.io' : CUSTOM_DOMAIN,
-  base: onGitHubSubpath ? `/${REPO_NAME}` : '/',
+  base,
   output: 'static',
+  // About Me now lives on the home page; keep the old URL working.
+  redirects: { '/about': `${base === '/' ? '' : base}/#about` },
   trailingSlash: 'ignore',
   vite: { plugins: [tailwindcss()] },
   integrations: [sitemap()],

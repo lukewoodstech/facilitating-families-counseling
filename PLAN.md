@@ -14,7 +14,7 @@ far better. Everything below was built as described; the "Decisions to confirm" 
 | Route | Old Google Site page | Content source |
 | --- | --- | --- |
 | `/` | /home | `src/content/pages/home.md` + service summaries |
-| `/about` | NEW ("About Me") | `src/content/pages/about.md` (placeholders only) |
+| `/#about` | NEW ("About Me" section on the home page; `/about` redirects here) | `src/content/pages/about.md` (placeholders only) |
 | `/services` | /scope-of-practice (heading kept: "Scope of Practice") | `src/content/pages/services.md` + services collection |
 | `/services/eating-disorders` | /scope-of-practice/eating-disorders | `src/content/services/eating-disorders.md` |
 | `/services/couples-and-family` | /scope-of-practice/couples-and-family | `src/content/services/couples-and-family.md` |
@@ -60,7 +60,7 @@ facilitating-families-counseling/
 | --- | --- |
 | `BaseLayout` | html shell, Head, Header, Footer, scroll-reveal script |
 | `Head` | per-page title/description, canonical, Open Graph, Twitter, favicon, sitemap link |
-| `Header` | logo lockup, desktop nav with active state, accessible mobile menu, skip link |
+| `Header` | sticky; wordmark, desktop nav with active state, accessible mobile menu, skip link |
 | `Footer` | contact info, site links, 988 crisis line, legal name |
 | `Button` | primary / secondary / accent / ghost link buttons |
 | `Section` | vertical rhythm + surface tone (cream / linen / sand / teal), optional linen texture |
@@ -135,7 +135,7 @@ Left exactly as written (flagged, not obvious enough to touch): `patients who;`,
 2. **Mobile menu button**: "Menu" / "Close". **Skip link**: "Skip to content"
 3. **Hero buttons**: "Connect With Me", "Scope of Practice" (her headings reused as labels)
 4. **Telehealth sentence** (requested): "All sessions are held virtually by telehealth for clients in Minnesota, Wisconsin, Wyoming, Idaho, and Utah." On Licenses & Payments and Connect With Me.
-5. **About Me page labels**: "About Me", "Bio", "Credentials", "Approach" + the `[TODO]` placeholders
+5. **About Me section** (home page): heading "About Me" + the `[TODO]` placeholders
 6. **Service pages**: "Scope of Practice" heading over the links to the other three services (her heading, my placement)
 7. **Footer**: crisis line "If you are in crisis or thinking about suicide, call or text 988 (Suicide & Crisis Lifeline), available 24/7. If you are in immediate danger, call 911."; "© 2026 Facilitating Families Counseling, LLC"; "Connect With Me" / "Email:" / "Phone:" (hers)
 8. **404 page**: "Page not found", buttons "Home", "Connect With Me"
@@ -147,7 +147,7 @@ Left exactly as written (flagged, not obvious enough to touch): `patients who;`,
 ### Thin or empty pages (not filled)
 - **Trauma**: one paragraph. A `[TODO]` asks if she wants to say more.
 - **Trauma card blurb**: her site shows dots. `[TODO]` on the card.
-- **About Me**: no copy exists; placeholders only. Her business card shows "EmRee M. Pugmire, LMFT, Licensed Marriage & Family Therapist" and the values "Intentionality · Curiosity · Sustainability", not used because the site is the only copy source.
+- **About Me** (home page section): no copy exists; placeholders only. Her business card shows "EmRee M. Pugmire, LMFT, Licensed Marriage & Family Therapist" and the values "Intentionality · Curiosity · Sustainability", not used because the site is the only copy source.
 - **Connect With Me**: email and phone only, as on her site. One optional `[TODO]` for response time.
 - **Licenses & Payments**: no fees, policies, license numbers on her site; placeholders.
 

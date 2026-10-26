@@ -6,15 +6,15 @@ import { url, currentPath } from '../lib/url';
 
 const links = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About Me' },
+  { href: '/#about', label: 'About Me' },
   { href: '/services', label: 'Scope of Practice' },
   { href: '/licenses-payments', label: 'Licenses & Payments' },
   { href: '/contact', label: 'Connect With Me' },
 ];
 const here = currentPath(Astro.url.pathname);
-const isActive = (href: string) => (href === '/' ? here === '/' : here === href || here.startsWith(`${href}/`));
+const isActive = (href: string) => (href.includes('#') ? false : href === '/' ? here === '/' : here === href || here.startsWith(`${href}/`));
 ---
-<header class="relative z-20 border-b border-sand bg-cream/95 backdrop-blur-sm">
+<header class="sticky top-0 z-40 border-b border-sand bg-cream/95 shadow-[0_1px_0_rgb(39_48_47/0.04)] backdrop-blur-md">
   <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-pill focus:bg-teal focus:px-4 focus:py-2 focus:text-cream">
     Skip to content
   </a>
