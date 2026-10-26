@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import wordmark from '../assets/logo-wordmark-trimmed.png';
+import mark from '../assets/logo-mark-transparent.png';
 import site from '../content/site.json';
 import { url, currentPath } from '../lib/url';
 
@@ -18,8 +18,12 @@ const isActive = (href: string) => (href.includes('#') ? false : href === '/' ? 
     Skip to content
   </a>
   <div class="container-site flex items-center justify-between gap-6 py-4 lg:py-5">
-    <a href={url('/')} class="block shrink-0 no-underline" aria-label={`${site.name} home`}>
-      <Image src={wordmark} alt={`${site.name}. ${site.tagline}.`} width={420} densities={[1, 2, 3]} format="png" class="h-auto w-[15.5rem] sm:w-[20rem] lg:w-[25rem]" loading="eager" />
+    <a href={url('/')} class="flex shrink-0 items-center gap-3 no-underline sm:gap-4" aria-label={`${site.name} home`}>
+      <Image src={mark} alt="" width={160} densities={[1, 2, 3]} format="png" class="h-auto w-12 sm:w-14 lg:w-16" loading="eager" />
+      <span class="leading-none">
+        <span class="block font-display text-[1.25rem] font-semibold tracking-tight text-teal-deep sm:text-[1.5rem] lg:text-[1.7rem]" style="font-variation-settings: 'SOFT' 100, 'WONK' 1, 'wght' 600;">{site.name}</span>
+        <span class="mt-1.5 block font-body text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-leaf-deep sm:text-[0.7rem] lg:text-[0.78rem]">{site.tagline}</span>
+      </span>
     </a>
 
     <nav aria-label="Primary" class="hidden lg:block">
