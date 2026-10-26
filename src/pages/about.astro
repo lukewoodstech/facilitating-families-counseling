@@ -11,6 +11,7 @@ import Placeholder from '../components/Placeholder.astro';
 import PlaceholderImage from '../components/PlaceholderImage.astro';
 import ContactCTA from '../components/ContactCTA.astro';
 import Button from '../components/Button.astro';
+import site from '../content/site.json';
 
 const page = await getEntry('pages', 'about');
 if (!page) throw new Error('Missing src/content/pages/about.md');
@@ -20,17 +21,17 @@ const d = page.data;
 ---
 <BaseLayout title={d.title} description={d.description}>
   <PageHero title={d.heading ?? d.title}>
-    <p class="mt-4 font-display text-lead italic text-ink-soft"><Placeholder inline text="Emree's full name and credentials" /></p>
+    <p class="mt-4 font-display text-h3 text-teal">{site.therapistFullName}, {site.credentials}</p>
+    <p class="mt-1 font-body text-lead text-ink-soft">{site.credentialsLong}</p>
   </PageHero>
 
   <Section>
     <div class="grid items-start gap-10 md:grid-cols-[0.7fr_1.3fr] lg:gap-16">
       <div class="mx-auto w-full max-w-xs md:max-w-none" data-reveal>
-        <PlaceholderImage src="/images/placeholders/about-headshot.svg" alt="Placeholder for a portrait of Emree" width={960} height={1200} todo="Headshot of Emree (portrait, 4:5 or square, at least 1200px on the short side)" eager />
+        <PlaceholderImage src="/images/placeholders/about-headshot.svg" alt="Placeholder for a portrait of EmRee M. Pugmire" width={960} height={1200} todo="Headshot of EmRee (portrait, 4:5 or square, at least 1200px on the short side)" eager />
       </div>
       <div class="space-y-4" data-reveal style="--reveal-delay:120ms">
-        <Placeholder text="Short about section in Emree's words: who she is, how long she has been practicing, where she trained, and how she works with clients" />
-        <Placeholder text="Credentials and license type(s). License numbers per state if she wants them shown" />
+        <Placeholder text="Short about section in EmRee's words: who she is, how long she has been practicing, where she trained, and how she works with clients" />
         <div class="pt-4"><Button href="/about#connect">Connect With Me</Button></div>
       </div>
     </div>

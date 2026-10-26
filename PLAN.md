@@ -137,7 +137,7 @@ Left exactly as written (flagged, not obvious enough to touch): `patients who;`,
 2. **Mobile menu button**: "Menu" / "Close". **Skip link**: "Skip to content"
 3. **Hero buttons**: "Connect With Me", "Scope of Practice" (her headings reused as labels)
 4. **Telehealth sentence** (requested): "All sessions are held virtually by telehealth." On Licenses & Payments and Connect With Me.
-5. **About Me page**: heading "About Me" + the `[TODO]` placeholders
+5. **About Me page**: heading "About Me", "EmRee M. Pugmire, LMFT" and "Licensed Marriage and Family Therapist" (supplied by Luke), + the `[TODO]` placeholders
 6. **Service pages**: "Scope of Practice" heading over the links to the other three services (her heading, my placement)
 7. **Footer**: crisis line "If you are in crisis or thinking about suicide, call or text 988 (Suicide & Crisis Lifeline), available 24/7. If you are in immediate danger, call 911."; "© 2026 Facilitating Families Counseling, LLC"; "Connect With Me" / "Email:" / "Phone:" (hers)
 8. **404 page**: "Page not found", buttons "Home", "Connect With Me"
@@ -149,7 +149,7 @@ Left exactly as written (flagged, not obvious enough to touch): `patients who;`,
 ### Thin or empty pages (not filled)
 - **Trauma**: one paragraph. A `[TODO]` asks if she wants to say more.
 - **Trauma card blurb**: her site shows dots. `[TODO]` on the card.
-- **About Me**: no copy exists; placeholders only. Her business card shows "EmRee M. Pugmire, LMFT, Licensed Marriage & Family Therapist" and the values "Intentionality · Curiosity · Sustainability", not used because the site is the only copy source.
+- **About Me**: name and credentials are in; headshot and short bio are placeholders. The values on her card (Intentionality · Curiosity · Sustainability) are not used.
 - **Connect With Me**: email and phone only, as on her site. One optional `[TODO]` for response time.
 - **Licenses & Payments**: one optional placeholder for license numbers. No fee or policy placeholders (Luke: not needed).
 

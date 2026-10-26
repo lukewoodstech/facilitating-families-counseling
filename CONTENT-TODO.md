@@ -4,7 +4,7 @@ Each item matches a visible `[TODO]` on the site. When the real content arrives,
 to the content file named and delete the matching `<Placeholder …/>`.
 
 ## About Me (`src/pages/about.astro`, `src/content/pages/about.md`)
-- [ ] Full name and credentials as she wants them shown (her business card reads "EmRee M. Pugmire, LMFT, Licensed Marriage & Family Therapist")
+- [x] Name and credentials: EmRee M. Pugmire, LMFT, Licensed Marriage and Family Therapist (from Luke)
 - [ ] Headshot: portrait, 4:5 or square, at least 1200px on the short side → `public/images/`
 - [ ] Short about section, in her words (who she is, how long she has practiced, how she works)
 
