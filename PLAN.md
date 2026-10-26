@@ -122,10 +122,11 @@ Verbatim capture: `src/content/source-copy.md` (raw, typos preserved).
 | 7 | Eating Disorders heading | `Disorder(ARFID)` | `Disorder (ARFID)` |
 | 8 | Eating Disorders | `teanagers` | `teenagers` |
 | 9 | Home card | `Conscious transformations` + line break + `identifying…` | joined into one sentence |
+| 10 | Licenses & Payments | `Regents, Blue Cross Blue Shield` | `Regence, Blue Cross Blue Shield` (confirmed by Luke) |
 
 Left exactly as written (flagged, not obvious enough to touch): `patients who;`,
 `ie choking allergies, or medical issues`, `You have Strengths.`,
-`Regents, Blue Cross Blue Shield`, `Select Health`.
+`Select Health`.
 
 ### Her words used as display text (verbatim)
 - Hero headline: "I believe in change." (first sentence of Core Belief)
@@ -150,7 +151,7 @@ Left exactly as written (flagged, not obvious enough to touch): `patients who;`,
 - **Trauma card blurb**: her site shows dots. `[TODO]` on the card.
 - **About Me**: no copy exists; placeholders only. Her business card shows "EmRee M. Pugmire, LMFT, Licensed Marriage & Family Therapist" and the values "Intentionality · Curiosity · Sustainability", not used because the site is the only copy source.
 - **Connect With Me**: email and phone only, as on her site. One optional `[TODO]` for response time.
-- **Licenses & Payments**: no fees, policies, license numbers on her site; placeholders.
+- **Licenses & Payments**: one optional placeholder for license numbers. No fee or policy placeholders (Luke: not needed).
 
 ## 6. Images (all from her site, in `src/assets/original/`)
 - `logo-wordmark.png` (header, hero, OG image), `logo-mark.png` (the main logo tree: hero, faint watermark, footer)
@@ -175,7 +176,6 @@ descriptions. Contact and footer carry email and phone exactly as on her site.
   Then tick "Enforce HTTPS" in Settings → Pages.
 
 ## 9. Open questions
-1. "Regents" insurer: Regence BlueCross BlueShield?
-2. Card headings use her home-page wording ("Eating Disorder", "Couple & Family"); page headings use her page titles ("Eating Disorders", "Couples and Family"). Intentional, matches her site.
-3. Repo is **public** because GitHub Pages on a free personal account requires it.
-4. The old site's mailto pointed at a misspelled domain (`…counciling.com`); the new site uses `emree@facilitatingfamiliescounseling.com`.
+1. Card headings use her home-page wording ("Eating Disorder", "Couple & Family"); page headings use her page titles ("Eating Disorders", "Couples and Family"). Intentional, matches her site.
+2. Repo is **public** because GitHub Pages on a free personal account requires it.
+3. The old site's mailto pointed at a misspelled domain (`…counciling.com`); the new site uses `emree@facilitatingfamiliescounseling.com`.

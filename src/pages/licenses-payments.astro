@@ -32,11 +32,6 @@ const { Content } = await render(page);
         <ul class="mt-6 divide-y divide-sand rounded-card border border-sand bg-cream">
           {d.paymentOptions?.map((p) => <li class="px-5 py-4 text-lead">{p}</li>)}
         </ul>
-        <div class="mt-6 space-y-3">
-          <Placeholder text="Private pay session fee (and sliding scale, if offered)" />
-          <Placeholder text="How clients pay and when payment is due" />
-          <Placeholder text="Cancellation / no-show policy" />
-        </div>
       </div>
       <div data-reveal style="--reveal-delay:120ms">
         <h2 class="text-h2">Credentialed with:</h2>
@@ -44,7 +39,6 @@ const { Content } = await render(page);
           {d.insurers?.map((p) => <li class="px-5 py-4 text-lead">{p}</li>)}
         </ul>
         <div class="prose mt-6"><Content /></div>
-        <div class="mt-6"><Placeholder text="Confirm 'Regents' (Regence BlueCross BlueShield?) and the exact spelling of each insurer" /></div>
       </div>
     </div>
   </Section>

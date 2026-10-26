@@ -12,11 +12,7 @@ to the content file named and delete the matching `<Placeholder …/>`.
 - [ ] Trauma card blurb (her site shows only "....................." under Trauma)
 
 ## Licenses & Payments (`src/content/pages/licenses-payments.md`)
-- [ ] Private pay fee; sliding scale?
-- [ ] How and when clients pay
-- [ ] Cancellation / no-show policy
 - [ ] License numbers per state (optional)
-- [ ] Confirm insurer names ("Regents" → Regence?)
 
 ## Connect With Me, on the About Me page (`src/content/pages/contact.md`)
 - [ ] Typical response time (optional)
