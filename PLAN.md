@@ -150,7 +150,7 @@ Left exactly as written (flagged, not obvious enough to touch): `patients who;`,
 - **Trauma**: one paragraph. A `[TODO]` asks if she wants to say more.
 - **Trauma card blurb**: her site shows dots. `[TODO]` on the card.
 - **About Me**: name and credentials are in; headshot and short bio are placeholders. The values on her card (Intentionality · Curiosity · Sustainability) are not used.
-- **Connect With Me**: email and phone only, as on her site. One optional `[TODO]` for response time.
+- **Connect With Me**: email and phone only, as on her site, plus the telehealth and encryption lines.
 - **Licenses & Payments**: one optional placeholder for license numbers. No fee or policy placeholders (Luke: not needed).
 
 ## 6. Images (all from her site, in `src/assets/original/`)

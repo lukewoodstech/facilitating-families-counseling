@@ -14,9 +14,6 @@ to the content file named and delete the matching `<Placeholder …/>`.
 ## Licenses & Payments (`src/content/pages/licenses-payments.md`)
 - [ ] License numbers per state (optional)
 
-## Connect With Me, on the About Me page (`src/content/pages/contact.md`)
-- [ ] Typical response time (optional)
-
 ## Trauma page (`src/content/services/trauma.md`)
 - [ ] Anything more she wants to say (page is one paragraph)
 
