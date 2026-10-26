@@ -129,7 +129,15 @@
   .prose ol { list-style: decimal; }
   .prose ul { list-style: disc; }
   .prose li + li { margin-top: 0.5em; }
-  .prose strong { @apply font-semibold text-teal-deep; }
+  .prose strong {
+    @apply font-bold text-teal-deep;
+    font-variation-settings: "wght" 700;
+    background-image: linear-gradient(transparent 72%, var(--color-leaf-soft) 72%);
+    padding-inline: 0.08em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+  .prose strong a { @apply text-teal-deep; }
 
   /* Core Belief: her words carry the page */
   .core-belief p:first-child {
