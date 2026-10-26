@@ -169,11 +169,16 @@ descriptions. Contact and footer carry email and phone exactly as on her site.
 ## 8. Deployment
 - Push to `main` → `.github/workflows/deploy.yml` builds (Node 24) and deploys to GitHub Pages.
 - Until DNS is set up the site builds for `https://lukewoodstech.github.io/facilitating-families-counseling/`.
-- When DNS points `facilitatingfamiliescounseling.com` at GitHub Pages: set the repo Actions
-  **variable** `CUSTOM_DOMAIN_ENABLED=true`. The workflow then builds for the root path and
-  copies `CNAME` into `dist/`. DNS: four `A` records on the apex → 185.199.108.153,
-  185.199.109.153, 185.199.110.153, 185.199.111.153; `CNAME www` → `lukewoodstech.github.io`.
-  Then tick "Enforce HTTPS" in Settings → Pages.
+- Domain DNS lives at Squarespace Domains (Google Domains successor; nameservers are still
+  `ns-cloud-*.googledomains.com`). Today the apex has no `A` record at all and `www` is a
+  CNAME to Google Sites (`ghs.googlehosted.com`). Mail is Google Workspace (`MX` + SPF `TXT`),
+  must not be touched.
+- Records to set: four `A` on the apex → 185.199.108.153, 185.199.109.153, 185.199.110.153,
+  185.199.111.153; `CNAME www` → `lukewoodstech.github.io`. Optional: verify the domain at
+  github.com/settings/pages (adds a `_github-pages-challenge-lukewoodstech` TXT record).
+- Then run `scripts/go-live.sh` (idempotent): checks DNS, sets the Pages custom domain, sets
+  the Actions variable `CUSTOM_DOMAIN_ENABLED=true`, deploys, waits for the cert, enforces HTTPS.
+  `--check` only reports. Afterwards unpublish the Google Site so there is one site.
 
 ## 9. Open questions
 1. Card headings use her home-page wording ("Eating Disorder", "Couple & Family"); page headings use her page titles ("Eating Disorders", "Couples and Family"). Intentional, matches her site.

@@ -31,10 +31,13 @@ Pushing to `main` runs `.github/workflows/deploy.yml`, which builds and publishe
 GitHub Pages.
 
 - **Before DNS**: the site is served at `https://lukewoodstech.github.io/facilitating-families-counseling/`.
-- **After DNS** points `facilitatingfamiliescounseling.com` at GitHub Pages: set the
-  repository Actions variable `CUSTOM_DOMAIN_ENABLED` to `true`. The next deploy builds
-  for the root path and ships the `CNAME` file. Then enable "Enforce HTTPS" in
-  Settings → Pages.
+- **After DNS** points `facilitatingfamiliescounseling.com` at GitHub Pages, run
+  `scripts/go-live.sh`. It checks the public DNS, sets the custom domain on Pages, sets the
+  Actions variable `CUSTOM_DOMAIN_ENABLED=true` (root path build + `CNAME` shipped), deploys,
+  and enforces HTTPS once the certificate is issued. `scripts/go-live.sh --check` only
+  reports DNS state.
 
-Suggested DNS: four `A` records on the apex to `185.199.108.153`, `185.199.109.153`,
-`185.199.110.153`, `185.199.111.153`, and `CNAME www → lukewoodstech.github.io`.
+DNS (managed at Squarespace Domains, the successor to Google Domains): four `A` records on
+the apex to `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`;
+`CNAME www → lukewoodstech.github.io` (replacing the Google Sites `ghs.googlehosted.com`).
+Leave the `MX` and `SPF` records alone, they carry her Google Workspace email.
