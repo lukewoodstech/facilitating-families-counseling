@@ -1,0 +1,14 @@
+---
+/** Header block for inner pages: eyebrow, h1, optional intro text in the slot. */
+interface Props { eyebrow?: string; title: string; }
+const { eyebrow, title } = Astro.props;
+---
+<section class="texture-linen bg-linen border-b border-sand">
+  <div class="container-site py-section-sm md:py-section">
+    <div class="max-w-3xl" data-reveal>
+      {eyebrow && <p class="eyebrow mb-4">{eyebrow}</p>}
+      <h1 class="text-h1">{title}</h1>
+      <slot />
+    </div>
+  </div>
+</section>

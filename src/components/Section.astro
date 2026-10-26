@@ -1,0 +1,20 @@
+---
+/** Vertical rhythm + surface for a page section. */
+interface Props {
+  tone?: 'cream' | 'linen' | 'teal' | 'sand';
+  size?: 'default' | 'sm';
+  id?: string;
+  class?: string;
+  texture?: boolean;
+}
+const { tone = 'cream', size = 'default', id, class: extra = '', texture = false } = Astro.props;
+const tones = {
+  cream: 'bg-cream',
+  linen: 'bg-linen',
+  sand: 'bg-sand/60',
+  teal: 'bg-teal surface-teal text-cream',
+};
+---
+<section id={id} class:list={[tones[tone], size === 'sm' ? 'py-section-sm' : 'py-section', texture && 'texture-linen', extra]}>
+  <div class="container-site"><slot /></div>
+</section>

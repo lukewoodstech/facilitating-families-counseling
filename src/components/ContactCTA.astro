@@ -1,0 +1,24 @@
+---
+import site from '../content/site.json';
+import Section from './Section.astro';
+interface Props { heading?: string; tone?: 'linen' | 'cream' | 'sand'; }
+const { heading = 'Connect With Me', tone = 'sand' } = Astro.props;
+---
+<Section tone={tone} texture>
+  <div class="grid items-center gap-10 md:grid-cols-[1.2fr_1fr]" data-reveal>
+    <div>
+      <p class="eyebrow mb-4">Reach out</p>
+      <h2 class="text-h2">{heading}</h2>
+    </div>
+    <dl class="grid gap-4">
+      <div class="rounded-card bg-cream/80 p-5 shadow-card">
+        <dt class="text-xs font-semibold uppercase tracking-[0.14em] text-ink-soft">Email</dt>
+        <dd class="mt-1"><a href={`mailto:${site.email}`} class="font-display text-lg text-teal underline-offset-4 hover:underline sm:text-xl [overflow-wrap:anywhere]">{site.email}</a></dd>
+      </div>
+      <div class="rounded-card bg-cream/80 p-5 shadow-card">
+        <dt class="text-xs font-semibold uppercase tracking-[0.14em] text-ink-soft">Phone</dt>
+        <dd class="mt-1"><a href={site.phoneHref} class="font-display text-lg text-teal underline-offset-4 hover:underline sm:text-xl">{site.phone}</a></dd>
+      </div>
+    </dl>
+  </div>
+</Section>

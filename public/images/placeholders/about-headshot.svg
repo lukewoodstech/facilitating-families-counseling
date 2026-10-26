@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="1200" viewBox="0 0 960 1200" role="img" aria-label="Placeholder: Emree's headshot">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e6dacb"/><stop offset="1" stop-color="#d9e5e1"/>
+    </linearGradient>
+    <radialGradient id="r" cx="0.7" cy="0.3" r="0.6">
+      <stop offset="0" stop-color="#f8f4ed" stop-opacity="0.9"/><stop offset="1" stop-color="#f8f4ed" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g)"/>
+  <rect width="100%" height="100%" fill="url(#r)"/>
+  <circle cx="691" cy="456" r="300" fill="#1e4d48" opacity="0.08"/>
+  <circle cx="288" cy="840" r="200" fill="#a04e31" opacity="0.08"/>
+  <text x="50%" y="52%" text-anchor="middle" font-family="Georgia, serif" font-size="54" fill="#5e5750" opacity="0.7">Placeholder: Emree's headshot</text>
+</svg>

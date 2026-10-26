@@ -1,0 +1,21 @@
+---
+import { getEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Section from '../../components/Section.astro';
+import ServiceGrid from '../../components/ServiceGrid.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+
+const page = await getEntry('pages', 'services');
+if (!page) throw new Error('Missing src/content/pages/services.md');
+const d = page.data;
+---
+<BaseLayout title={d.title} description={d.description}>
+  <PageHero eyebrow={d.eyebrow} title={d.heading ?? d.title}>
+    <p class="mt-4 font-display text-lead italic text-ink-soft">My hope is that together we can identify ineffective interactions and the patterns that keep them alive.</p>
+  </PageHero>
+  <Section>
+    <ServiceGrid />
+  </Section>
+  <ContactCTA />
+</BaseLayout>

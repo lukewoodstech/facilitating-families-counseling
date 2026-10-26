@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+---
+<BaseLayout title="Page not found" noindex>
+  <Section>
+    <div class="container-prose text-center">
+      <p class="eyebrow mb-4">404</p>
+      <h1 class="text-h1">That page isn't here.</h1>
+      <p class="mt-6 text-lead text-ink-soft">The link may be out of date. Everything on the site is one click away.</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <Button href="/">Back home</Button>
+        <Button href="/contact" variant="secondary">Connect with me</Button>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

@@ -1,0 +1,10 @@
+---
+import { getCollection } from 'astro:content';
+import ServiceCard from './ServiceCard.astro';
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+---
+<div class="grid gap-5 sm:grid-cols-2">
+  {services.map((s, i) => (
+    <ServiceCard href={`/services/${s.id}`} title={s.data.cardTitle} summary={s.data.summary} index={i} />
+  ))}
+</div>

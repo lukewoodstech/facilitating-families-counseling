@@ -1,0 +1,74 @@
+---
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import Placeholder from '../components/Placeholder.astro';
+import PlaceholderImage from '../components/PlaceholderImage.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import Button from '../components/Button.astro';
+import site from '../content/site.json';
+
+const page = await getEntry('pages', 'about');
+if (!page) throw new Error('Missing src/content/pages/about.md');
+const d = page.data;
+---
+<BaseLayout title={d.title} description={d.description}>
+  <PageHero eyebrow={d.eyebrow} title={`${d.heading}`}>
+    <p class="mt-4 font-display text-lead italic text-ink-soft">
+      Licensed therapist <Placeholder inline text="credentials, e.g. LMFT" /> &middot; Facilitating Families Counseling, LLC
+    </p>
+  </PageHero>
+
+  <Section>
+    <div class="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+      <div class="lg:sticky lg:top-8 lg:self-start" data-reveal>
+        <PlaceholderImage
+          src="/images/placeholders/about-headshot.svg"
+          alt="Placeholder for a portrait of Emree"
+          width={960}
+          height={1200}
+          todo="Headshot of Emree (portrait, 4:5 or square, at least 1200px on the short side)"
+          eager
+        />
+      </div>
+
+      <div class="space-y-14" data-reveal style="--reveal-delay:120ms">
+        <div>
+          <p class="eyebrow mb-4">Bio</p>
+          <h2 class="text-h2">Hello, I'm {site.therapist}.</h2>
+          <div class="mt-6 space-y-4">
+            <Placeholder text="Emree's bio: who she is, how long she has been practicing, where she trained, and what led her to this work" />
+          </div>
+        </div>
+
+        <div>
+          <p class="eyebrow mb-4">Credentials</p>
+          <h2 class="text-h2">Training & licensure</h2>
+          <div class="mt-6 space-y-4">
+            <Placeholder text="Credentials and license type(s), e.g. LMFT. License numbers per state if she wants them shown" />
+            <Placeholder text="Education, professional memberships, any certifications (e.g. Lifespan Integration training)" />
+          </div>
+        </div>
+
+        <div>
+          <p class="eyebrow mb-4">Approach</p>
+          <h2 class="text-h2">How I work</h2>
+          <blockquote class="mt-6 border-l-2 border-terracotta pl-5 font-display text-lead italic text-ink">
+            I am a strength based therapist. You have Strengths. You have always had strengths.
+          </blockquote>
+          <div class="mt-6 space-y-4">
+            <Placeholder text="Emree's approach in her own words: how she works with clients, what a first session is like, modalities she uses" />
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-3 pt-2">
+          <Button href="/contact">Connect with me</Button>
+          <Button href="/services" variant="secondary">See services</Button>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <ContactCTA />
+</BaseLayout>
