@@ -17,9 +17,9 @@ const isActive = (href: string) => (href.includes('#') ? false : href === '/' ? 
   <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-pill focus:bg-teal focus:px-4 focus:py-2 focus:text-cream">
     Skip to content
   </a>
-  <div class="container-site flex items-center justify-between gap-6 py-4">
+  <div class="container-site flex items-center justify-between gap-6 py-4 lg:py-5">
     <a href={url('/')} class="block shrink-0 no-underline" aria-label={`${site.name} home`}>
-      <Image src={wordmark} alt={`${site.name}. ${site.tagline}.`} width={300} densities={[1, 2, 3]} format="webp" class="h-auto w-[13.5rem] sm:w-[17rem] lg:w-[19rem]" loading="eager" />
+      <Image src={wordmark} alt={`${site.name}. ${site.tagline}.`} width={420} densities={[1, 2, 3]} format="png" class="h-auto w-[15.5rem] sm:w-[20rem] lg:w-[25rem]" loading="eager" />
     </a>
 
     <nav aria-label="Primary" class="hidden lg:block">
