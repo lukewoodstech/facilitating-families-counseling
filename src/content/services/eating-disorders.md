@@ -3,7 +3,7 @@ title: Eating Disorders
 cardTitle: Eating Disorder
 summary: Collaborative strategies addressing eating disorder thought distortion and behaviors, tailored to developmental needs.
 description: Eating disorder therapy by telehealth. Anorexia, bulimia, orthorexia, ARFID, and involving others in care. Facilitating Families Counseling.
-order: 1
+order: 3
 tree: tree-eating-disorder.png
 treeAlt: Illustration of a single tree with deep roots, from the Facilitating Families Counseling logo family
 todos: []

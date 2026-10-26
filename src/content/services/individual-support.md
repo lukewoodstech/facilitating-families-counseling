@@ -3,7 +3,7 @@ title: Individual Support
 cardTitle: Individual Support
 summary: Authentic connections addressing core belief systems, current coping skills and effective emotional regulation practices.
 description: Strength based individual therapy by telehealth. Facilitating Families Counseling.
-order: 3
+order: 2
 tree: tree-individual-support.png
 treeAlt: Illustration of a young seedling with two leaves and spreading roots
 todos: []

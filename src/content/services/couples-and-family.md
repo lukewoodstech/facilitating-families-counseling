@@ -3,7 +3,7 @@ title: Couples and Family
 cardTitle: Couple & Family
 summary: Conscious transformations identifying ineffective patterns, exploring alternatives and applying productive patterns that strengthen interactions.
 description: Couples and family therapy by telehealth for every phase of the family developmental cycle. Facilitating Families Counseling.
-order: 2
+order: 1
 tree: tree-couple-and-family.png
 treeAlt: Illustration of a family of three trees growing together
 todos: []
