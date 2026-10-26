@@ -1,10 +1,9 @@
 /* =============================================================================
    DESIGN TOKENS
-   Every color, font, size, spacing step, radius and shadow used on the site is
-   defined here, once. Tailwind v4 turns each @theme variable into a utility
-   (bg-cream, text-teal, font-display, py-section, rounded-card ...) AND into a
-   plain CSS custom property on :root (var(--color-cream) ...), so restyling the
-   whole site is a one-file change.
+   Palette is built from Emree's logo: logo teal (#426b69) and leaf green (#8db277)
+   on warm cream. Tailwind v4 turns each @theme variable into a utility
+   (bg-teal, text-leaf-deep, font-display, py-section, rounded-card ...) AND a CSS
+   custom property on :root, so restyling the site is a one-file change.
    ========================================================================== */
 @import "tailwindcss";
 @import "@fontsource-variable/fraunces";
@@ -12,29 +11,30 @@
 @import "@fontsource-variable/instrument-sans";
 
 @theme {
-  /* --- Palette: warm neutral base + two grounded accents --------------------- */
+  /* --- Palette ---------------------------------------------------------------- */
   --color-*: initial;
-  --color-cream: #f8f4ed;        /* page background */
-  --color-linen: #f1eae0;        /* alternate section background */
-  --color-sand: #e6dacb;         /* cards, dividers, soft fills */
-  --color-sand-deep: #cdbba3;    /* borders, rules */
-  --color-ink: #2a2724;          /* primary text */
-  --color-ink-soft: #5e5750;     /* secondary text (AA on cream) */
-  --color-teal: #1e4d48;         /* primary accent: headings, buttons, Core Belief */
-  --color-teal-deep: #153a36;    /* hover / darker surfaces */
-  --color-teal-soft: #d9e5e1;    /* tinted fills */
-  --color-terracotta: #a04e31;   /* secondary accent: links, highlights (AA on cream) */
-  --color-terracotta-soft: #f1dfd4;
+  --color-cream: #faf7f1;        /* page background */
+  --color-linen: #f3eee5;        /* alternate section background */
+  --color-sand: #e9e2d5;         /* borders, soft fills */
+  --color-sand-deep: #d3c9b6;    /* rules */
+  --color-ink: #27302f;          /* body text (slightly teal-cast charcoal) */
+  --color-ink-soft: #5b6664;     /* secondary text */
+  --color-teal: #426b69;         /* logo teal: headings, buttons, Core Belief block */
+  --color-teal-deep: #2e4f4d;    /* hover, dark surfaces */
+  --color-teal-soft: #dde8e5;    /* tinted fills */
+  --color-leaf: #8db277;         /* logo leaf green: decorative only (not for text) */
+  --color-leaf-deep: #48713a;    /* leaf green for text, AA on cream */
+  --color-leaf-soft: #e6eedd;    /* tinted fills */
   --color-white: #ffffff;
   --color-transparent: transparent;
   --color-current: currentColor;
 
-  /* --- Type ------------------------------------------------------------------ */
+  /* --- Type ------------------------------------------------------------------- */
   --font-display: "Fraunces Variable", "Iowan Old Style", Georgia, serif;
   --font-body: "Instrument Sans Variable", ui-sans-serif, system-ui, sans-serif;
 
-  --text-display: clamp(2.75rem, 1.9rem + 3.8vw, 5.25rem);
-  --text-display--line-height: 1.02;
+  --text-display: clamp(2.75rem, 1.9rem + 3.8vw, 5rem);
+  --text-display--line-height: 1.04;
   --text-display--letter-spacing: -0.02em;
   --text-h1: clamp(2.25rem, 1.6rem + 2.6vw, 3.75rem);
   --text-h1--line-height: 1.08;
@@ -54,21 +54,21 @@
   --text-eyebrow--line-height: 1.2;
   --text-eyebrow--letter-spacing: 0.14em;
 
-  /* --- Spacing rhythm -------------------------------------------------------- */
+  /* --- Spacing rhythm --------------------------------------------------------- */
   --spacing-section: clamp(4.5rem, 3rem + 5vw, 8rem);
   --spacing-section-sm: clamp(2.75rem, 2rem + 2.5vw, 4.5rem);
   --spacing-gutter: clamp(1.25rem, 0.8rem + 2vw, 2.5rem);
 
-  /* --- Shape ----------------------------------------------------------------- */
+  /* --- Shape ------------------------------------------------------------------ */
   --radius-card: 1.25rem;
   --radius-image: 1.5rem;
   --radius-pill: 999px;
   --radius-button: 999px;
 
-  --shadow-card: 0 1px 2px rgb(42 39 36 / 0.04), 0 14px 36px -16px rgb(42 39 36 / 0.22);
-  --shadow-card-hover: 0 2px 4px rgb(42 39 36 / 0.05), 0 24px 48px -18px rgb(42 39 36 / 0.3);
+  --shadow-card: 0 1px 2px rgb(39 48 47 / 0.04), 0 14px 36px -16px rgb(39 48 47 / 0.22);
+  --shadow-card-hover: 0 2px 4px rgb(39 48 47 / 0.05), 0 24px 48px -18px rgb(39 48 47 / 0.3);
 
-  /* --- Motion ---------------------------------------------------------------- */
+  /* --- Motion ----------------------------------------------------------------- */
   --ease-calm: cubic-bezier(0.22, 0.61, 0.36, 1);
   --duration-reveal: 800ms;
 }
@@ -77,83 +77,61 @@
    BASE
    ========================================================================== */
 @layer base {
-  html {
-    scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-  }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body {
     @apply bg-cream text-ink font-body text-body antialiased;
-    overflow-x: clip; /* decorative blurs in the hero must never create a horizontal scroll */
+    overflow-x: clip;
     font-feature-settings: "ss01", "cv05";
   }
   h1, h2, h3, h4 {
-    @apply font-display text-teal;
+    @apply font-display text-teal-deep;
     font-variation-settings: "SOFT" 60, "WONK" 0;
     text-wrap: balance;
   }
   p { text-wrap: pretty; }
-  ::selection { background: var(--color-terracotta-soft); color: var(--color-ink); }
-
-  /* Visible, consistent focus for every interactive element */
+  ::selection { background: var(--color-leaf-soft); color: var(--color-ink); }
   :focus-visible {
-    outline: 3px solid var(--color-terracotta);
+    outline: 3px solid var(--color-leaf-deep);
     outline-offset: 3px;
     border-radius: 4px;
   }
 }
 
 /* =============================================================================
-   COMPONENT RECIPES (shared patterns that are awkward as pure utilities)
+   COMPONENT RECIPES
    ========================================================================== */
 @layer components {
-  .container-site {
-    @apply mx-auto w-full max-w-6xl;
-    padding-inline: var(--spacing-gutter);
-  }
-  .container-prose {
-    @apply mx-auto w-full max-w-3xl;
-  }
+  .container-site { @apply mx-auto w-full max-w-6xl; padding-inline: var(--spacing-gutter); }
+  .container-prose { @apply mx-auto w-full max-w-3xl; }
 
-  .eyebrow {
-    @apply font-body text-eyebrow uppercase text-terracotta font-semibold;
-  }
+  .eyebrow { @apply font-body text-eyebrow uppercase text-leaf-deep font-semibold; }
 
-  /* Linen texture: a very faint film-grain over a warm surface */
+  /* Faint linen grain over warm surfaces */
   .texture-linen { position: relative; isolation: isolate; }
   .texture-linen::before {
-    content: "";
-    position: absolute; inset: 0; z-index: -1; pointer-events: none;
-    opacity: 0.35;
-    mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.48 0 0 0 0 0.40 0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    opacity: 0.3; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.42 0 0 0 0.16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
   /* Long-form copy rendered from markdown */
-  .prose {
-    @apply text-ink;
-    font-size: var(--text-lead);
-    line-height: var(--text-lead--line-height);
-  }
+  .prose { @apply text-ink; font-size: var(--text-lead); line-height: var(--text-lead--line-height); }
   .prose > * + * { margin-top: 1.35em; }
-  .prose h2 {
-    @apply text-h2 mt-[1.6em] mb-[0.5em];
-  }
+  .prose h2 { @apply text-h2 mt-[1.6em] mb-[0.5em]; }
   .prose h3 { @apply text-h3 mt-[1.4em] mb-[0.4em]; }
   .prose a {
-    @apply text-terracotta underline decoration-terracotta/40 underline-offset-4;
+    @apply text-leaf-deep underline decoration-leaf underline-offset-4;
     transition: text-decoration-color 200ms var(--ease-calm);
   }
-  .prose a:hover { @apply decoration-terracotta; }
+  .prose a:hover { @apply decoration-leaf-deep; }
   .prose ol, .prose ul { padding-left: 1.5em; }
   .prose ol { list-style: decimal; }
   .prose ul { list-style: disc; }
   .prose li + li { margin-top: 0.5em; }
-  .prose strong { @apply font-semibold text-teal; }
+  .prose strong { @apply font-semibold text-teal-deep; }
 
-  /* The Core Belief block: her words carry the page */
+  /* Core Belief: her words carry the page */
   .core-belief p:first-child {
     @apply font-display text-quote text-cream;
     font-variation-settings: "SOFT" 100, "WONK" 1;
@@ -161,21 +139,16 @@
   .core-belief p { @apply text-cream/90; }
   .core-belief p:first-child + p { margin-top: 2.25rem; }
 
-  /* Dark surfaces: headings inherit the surface color */
   .surface-teal h1, .surface-teal h2, .surface-teal h3 { @apply text-cream; }
-  .surface-teal .eyebrow { @apply text-sand; }
+  .surface-teal .eyebrow { @apply text-leaf; }
 }
 
 /* =============================================================================
-   MOTION: gentle reveal on scroll. Only active when JS has loaded (html.js),
-   and fully disabled when the visitor prefers reduced motion.
+   MOTION: gentle reveal on scroll (only with JS, never under reduced motion)
    ========================================================================== */
 html.js [data-reveal] {
-  opacity: 0;
-  translate: 0 18px;
-  transition:
-    opacity var(--duration-reveal) var(--ease-calm),
-    translate var(--duration-reveal) var(--ease-calm);
+  opacity: 0; translate: 0 18px;
+  transition: opacity var(--duration-reveal) var(--ease-calm), translate var(--duration-reveal) var(--ease-calm);
   transition-delay: var(--reveal-delay, 0ms);
 }
 html.js [data-reveal].is-visible { opacity: 1; translate: 0 0; }

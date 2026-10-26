@@ -11,6 +11,12 @@ correction is listed in `PLAN.md` under "Typo fixes".
 Site title on every page: `FFC LLC`
 Navigation: Home · Licenses & Payments · Scope of Practice (Eating Disorders · Couples and Family · Individual Support · Trauma)
 
+Logo (header banner on every page, saved to `src/assets/original/logo-wordmark.png`):
+tree mark + script wordmark "Facilitating Families Counseling" + tagline "HELPING FAMILIES HEAL".
+Images on her pages are saved verbatim in `src/assets/original/` (tree illustrations per
+service, five state outlines with the tree, a hand-holding-seedling photo used as a section
+background, a blurred teal background). There is no photo of Emree on the site.
+
 ---
 
 ## Home
@@ -44,6 +50,8 @@ Authentic connections addressing core belief systems, current coping skills and 
 ### Connect With Me
 
 Email: emree@facilitatingfamiliescounseling.com Phone: 385.498.6860
+
+Section background behind Connect With Me: photo of a hand holding a seedling (`photo-hand-seedling.jpg`).
 
 Note: the visible email text is `emree@facilitatingfamiliescounseling.com`, but the underlying
 mailto link on the Google Site points to `Emree@facilitatingfamiliescounciling.com`

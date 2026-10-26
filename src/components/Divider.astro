@@ -1,0 +1,33 @@
+---
+/**
+ * Organic section divider: a soft, asymmetric curve in the colour of the section
+ * it belongs to, laid over the section above or below it.
+ */
+interface Props {
+  /** Tailwind text-colour class of the curve, e.g. "text-teal" */
+  color: string;
+  /** Which edge of the section this sits on */
+  position?: 'top' | 'bottom';
+  flip?: boolean;
+  class?: string;
+}
+const { color, position = 'top', flip = false, class: extra = '' } = Astro.props;
+---
+<div
+  aria-hidden="true"
+  class:list={[
+    'pointer-events-none absolute inset-x-0 h-[clamp(2.5rem,6vw,5rem)]',
+    position === 'top' ? '-top-px' : '-bottom-px',
+    color,
+    extra,
+  ]}
+>
+  <svg
+    viewBox="0 0 1440 80"
+    preserveAspectRatio="none"
+    class:list={['h-full w-full', position === 'bottom' && 'rotate-180', flip && '-scale-x-100']}
+    fill="currentColor"
+  >
+    <path d="M0 80V36C180 8 330 2 520 18C700 34 860 62 1040 50C1200 40 1330 18 1440 0V80Z" />
+  </svg>
+</div>

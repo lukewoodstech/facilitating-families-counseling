@@ -1,7 +1,6 @@
 ---
-title: Services
-description: Scope of practice at Facilitating Families Counseling. Eating disorders, couples and family, individual support, and trauma.
-eyebrow: Scope of Practice
-heading: Services
+title: Scope of Practice
+description: Scope of practice at Facilitating Families Counseling. Eating disorder, couple and family, individual support, and trauma therapy by telehealth.
+heading: Scope of Practice
 todos: []
 ---

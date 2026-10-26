@@ -1,13 +1,16 @@
 ---
 import { getEntry, render } from 'astro:content';
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
-import SectionHeading from '../components/SectionHeading.astro';
 import ServiceGrid from '../components/ServiceGrid.astro';
 import ContactCTA from '../components/ContactCTA.astro';
 import Button from '../components/Button.astro';
-import Placeholder from '../components/Placeholder.astro';
-import PlaceholderImage from '../components/PlaceholderImage.astro';
+import Divider from '../components/Divider.astro';
+import LeafAccent from '../components/LeafAccent.astro';
+import wordmark from '../assets/logo-wordmark-trimmed.png';
+import { original } from '../lib/assets';
+const heroTree = original('tree-eating-disorder.png');
 import site from '../content/site.json';
 
 const home = await getEntry('pages', 'home');
@@ -15,70 +18,49 @@ if (!home) throw new Error('Missing src/content/pages/home.md');
 const { Content: CoreBelief } = await render(home);
 const hero = home.data.hero!;
 ---
-<BaseLayout title="Home" fullTitle={`${site.name} | ${hero.headline}`} description={home.data.description}>
-  <!-- HERO: abstract warm treatment, no photo of Emree here by design -->
-  <section class="texture-linen relative overflow-hidden bg-linen">
-    <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-      <div class="absolute -right-32 -top-40 h-[34rem] w-[34rem] rounded-full bg-teal-soft/70 blur-3xl"></div>
-      <div class="absolute -bottom-48 -left-24 h-[30rem] w-[30rem] rounded-full bg-terracotta-soft/80 blur-3xl"></div>
-      <svg class="absolute right-[-6rem] top-1/2 hidden w-[42rem] -translate-y-1/2 text-teal/[0.08] lg:block" viewBox="0 0 600 600" fill="none" stroke="currentColor" stroke-width="1.5">
-        <circle cx="300" cy="300" r="280" /><circle cx="300" cy="300" r="210" /><circle cx="300" cy="300" r="140" /><circle cx="300" cy="300" r="70" />
-      </svg>
-    </div>
-    <div class="container-site relative py-section md:py-[clamp(7rem,5rem+8vw,12rem)]">
-      <div class="max-w-3xl" data-reveal>
-        <p class="eyebrow mb-6">Facilitating Families Counseling, LLC</p>
-        <h1 class="text-display font-display text-teal">{hero.headline}</h1>
-        {hero.subhead && <p class="mt-6 max-w-xl font-display text-lead italic text-ink-soft" style="font-variation-settings: 'SOFT' 100, 'WONK' 1;">{hero.subhead}</p>}
-        <div class="mt-10 flex flex-wrap gap-3">
-          <Button href="/contact" size="lg">Connect with me</Button>
-          <Button href="/services" variant="secondary" size="lg">Explore services</Button>
+<BaseLayout title="Home" fullTitle={`${site.name} | ${site.tagline}`} description={home.data.description}>
+  <!-- HERO: her logo and tree mark carry it. No photo here by design. -->
+  <section class="texture-linen relative overflow-hidden bg-cream">
+    <LeafAccent class="-left-24 -bottom-24 w-[26rem] md:w-[36rem]" opacity="opacity-[0.06]" />
+    <div class="container-site relative py-section md:py-[clamp(6rem,4rem+7vw,10rem)]">
+      <div class="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+        <div class="max-w-2xl" data-reveal>
+          <Image src={wordmark} alt={`${site.name}. ${site.tagline}.`} width={720} densities={[1, 2]} format="webp" class="h-auto w-full max-w-[34rem]" loading="eager" />
+          <h1 class="mt-10 text-display font-display text-teal-deep">{hero.headline}</h1>
+          <div class="mt-10 flex flex-wrap gap-3">
+            <Button href="/contact" size="lg">Connect With Me</Button>
+            <Button href="/services" variant="secondary" size="lg">Scope of Practice</Button>
+          </div>
+        </div>
+        <div class="relative mx-auto w-full max-w-xs sm:max-w-sm lg:max-w-md" data-reveal style="--reveal-delay:150ms">
+          <div class="absolute inset-[10%] -z-10 rounded-full bg-leaf-soft blur-3xl" aria-hidden="true"></div>
+          <Image src={heroTree} alt="Illustration of a tree with deep roots, from Emree's site" width={720} densities={[1, 2]} format="webp" class="h-auto w-full" loading="eager" />
         </div>
       </div>
     </div>
+    <Divider color="text-leaf-soft" position="bottom" />
   </section>
 
-  <!-- CORE BELIEF: the heart of the site -->
-  <Section tone="teal" id="core-belief">
-    <div class="container-prose" data-reveal>
-      <p class="eyebrow mb-8 text-center">{home.data.eyebrow}</p>
-      <div class="core-belief prose text-center">
-        <CoreBelief />
+  <!-- CORE BELIEF: her heading, her words. Double wave band echoes her business card. -->
+  <section id="core-belief" class="surface-teal relative bg-teal text-cream">
+    <!-- leaf-green band with the teal wave rising through it, like the card -->
+    <div class="relative h-[clamp(2.5rem,6vw,4.5rem)] bg-leaf-soft" aria-hidden="true">
+      <Divider color="text-teal" position="bottom" flip />
+    </div>
+    <LeafAccent class="-right-20 top-10 w-[24rem] md:w-[34rem]" opacity="opacity-[0.08]" />
+    <div class="container-site relative py-section">
+      <div class="container-prose" data-reveal>
+        <h2 class="mb-10 text-center text-h2">{home.data.heading}</h2>
+        <div class="core-belief prose text-center"><CoreBelief /></div>
       </div>
     </div>
-  </Section>
+    <Divider color="text-cream" position="bottom" />
+  </section>
 
-  <!-- SERVICES -->
-  <Section tone="cream" id="services">
-    <div class="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-      <SectionHeading eyebrow="Scope of Practice" title="How I can help" />
-      <div data-reveal><Button href="/services" variant="ghost">All services &rarr;</Button></div>
-    </div>
+  <!-- SCOPE OF PRACTICE: one card per service, each with her original tree illustration -->
+  <Section tone="cream" id="scope-of-practice">
+    <h2 class="mb-12 text-center text-h2" data-reveal>Scope of Practice</h2>
     <ServiceGrid />
-  </Section>
-
-  <!-- ABOUT TEASER -->
-  <Section tone="linen" texture id="about">
-    <div class="grid items-center gap-10 md:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-      <div data-reveal>
-        <PlaceholderImage
-          src="/images/placeholders/about-headshot.svg"
-          alt="Placeholder for a portrait of Emree"
-          width={960}
-          height={1200}
-          class="max-w-sm md:max-w-none"
-        />
-      </div>
-      <div data-reveal style="--reveal-delay:120ms">
-        <p class="eyebrow mb-4">About Me</p>
-        <h2 class="text-h2">{site.therapist} <Placeholder inline text="last name" /></h2>
-        <blockquote class="mt-6 border-l-2 border-terracotta pl-5 font-display text-lead italic text-ink">
-          I believe in being upfront, honest, and direct in identifying what is and is not working for you as an individual. We are a team.
-        </blockquote>
-        <div class="mt-6"><Placeholder text="Short About teaser (2 to 3 sentences from Emree's bio)" /></div>
-        <div class="mt-8"><Button href="/about" variant="secondary">More about me</Button></div>
-      </div>
-    </div>
   </Section>
 
   <ContactCTA />

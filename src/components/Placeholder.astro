@@ -1,24 +1,13 @@
 ---
-/**
- * Visible marker for content Emree still needs to supply. Renders as
- * "[TODO: ...]" so it is impossible to miss on the page and easy to grep.
- * Delete the component call once the real content is in.
- */
-interface Props {
-  text: string;
-  inline?: boolean;
-  class?: string;
-}
+/** Visible "[TODO: ...]" marker for content Emree still needs to supply. */
+interface Props { text: string; inline?: boolean; class?: string }
 const { text, inline = false, class: extra = '' } = Astro.props;
 ---
 {inline ? (
-  <span class:list={['rounded-md border border-dashed border-terracotta/60 bg-terracotta-soft/60 px-2 py-0.5 font-body text-[0.85em] text-terracotta', extra]}>[TODO: {text}]</span>
+  <span class:list={['rounded-md border border-dashed border-leaf-deep/60 bg-leaf-soft px-2 py-0.5 font-body text-[0.85em] not-italic text-leaf-deep', extra]}>[TODO: {text}]</span>
 ) : (
-  <div
-    role="note"
-    class:list={['rounded-card border border-dashed border-terracotta/60 bg-terracotta-soft/50 px-5 py-4 font-body text-base leading-relaxed text-terracotta', extra]}
-  >
-    <span class="mr-2 inline-block rounded-pill bg-terracotta px-2 py-0.5 text-[0.7rem] font-bold uppercase tracking-wider text-cream">TODO</span>
+  <div role="note" class:list={['rounded-card border border-dashed border-leaf-deep/60 bg-leaf-soft/70 px-5 py-4 font-body text-base leading-relaxed text-leaf-deep', extra]}>
+    <span class="mr-2 inline-block rounded-pill bg-leaf-deep px-2 py-0.5 text-[0.7rem] font-bold uppercase tracking-wider text-cream">TODO</span>
     {text}
   </div>
 )}

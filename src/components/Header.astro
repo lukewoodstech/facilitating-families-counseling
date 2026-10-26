@@ -1,34 +1,29 @@
 ---
+import { Image } from 'astro:assets';
+import wordmark from '../assets/logo-wordmark-trimmed.png';
 import site from '../content/site.json';
 import { url, currentPath } from '../lib/url';
 
 const links = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/services', label: 'Services' },
+  { href: '/about', label: 'About Me' },
+  { href: '/services', label: 'Scope of Practice' },
   { href: '/licenses-payments', label: 'Licenses & Payments' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/contact', label: 'Connect With Me' },
 ];
 const here = currentPath(Astro.url.pathname);
 const isActive = (href: string) => (href === '/' ? here === '/' : here === href || here.startsWith(`${href}/`));
 ---
-<header class="relative z-20 bg-cream/90 backdrop-blur-sm border-b border-sand">
-  <a
-    href="#main"
-    class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-pill focus:bg-teal focus:px-4 focus:py-2 focus:text-cream"
-  >
+<header class="relative z-20 border-b border-sand bg-cream/95 backdrop-blur-sm">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-pill focus:bg-teal focus:px-4 focus:py-2 focus:text-cream">
     Skip to content
   </a>
-  <div class="container-site flex items-center justify-between gap-6 py-5">
-    <a href={url('/')} class="group flex items-center gap-3 no-underline" aria-label={`${site.name} home`}>
-      <img src={url('/favicon.svg')} alt="" width="36" height="36" class="h-9 w-9 rounded-lg" />
-      <span class="font-display text-teal leading-tight">
-        <span class="block text-lg sm:text-xl font-medium tracking-tight">Facilitating Families</span>
-        <span class="block text-[0.7rem] uppercase tracking-[0.18em] text-ink-soft font-body font-semibold">Counseling, LLC</span>
-      </span>
+  <div class="container-site flex items-center justify-between gap-6 py-4">
+    <a href={url('/')} class="block shrink-0 no-underline" aria-label={`${site.name} home`}>
+      <Image src={wordmark} alt={`${site.name}. ${site.tagline}.`} width={300} densities={[1, 2, 3]} format="webp" class="h-auto w-[13.5rem] sm:w-[17rem] lg:w-[19rem]" loading="eager" />
     </a>
 
-    <nav aria-label="Primary" class="hidden md:block">
+    <nav aria-label="Primary" class="hidden lg:block">
       <ul class="flex items-center gap-1">
         {links.map((l) => (
           <li>
@@ -36,9 +31,8 @@ const isActive = (href: string) => (href === '/' ? here === '/' : here === href 
               href={url(l.href)}
               aria-current={isActive(l.href) ? 'page' : undefined}
               class:list={[
-                'inline-block rounded-pill px-4 py-2 text-[0.95rem] font-medium text-ink transition-colors duration-200',
-                'hover:bg-sand/70 hover:text-teal',
-                isActive(l.href) && 'bg-teal-soft text-teal',
+                'inline-block rounded-pill px-4 py-2 text-[0.95rem] font-medium text-ink transition-colors duration-200 hover:bg-leaf-soft hover:text-teal-deep',
+                isActive(l.href) && 'bg-teal-soft text-teal-deep',
               ]}
             >
               {l.label}
@@ -48,32 +42,17 @@ const isActive = (href: string) => (href === '/' ? here === '/' : here === href 
       </ul>
     </nav>
 
-    <button
-      type="button"
-      class="md:hidden inline-flex items-center gap-2 rounded-pill border border-sand-deep px-4 py-2 text-sm font-semibold text-teal"
-      aria-expanded="false"
-      aria-controls="mobile-nav"
-      data-nav-toggle
-    >
+    <button type="button" class="lg:hidden inline-flex items-center gap-2 rounded-pill border border-sand-deep px-4 py-2 text-sm font-semibold text-teal-deep" aria-expanded="false" aria-controls="mobile-nav" data-nav-toggle>
       <span data-nav-label>Menu</span>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-        <path d="M4 7h16M4 12h16M4 17h16" />
-      </svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
     </button>
   </div>
 
-  <nav id="mobile-nav" aria-label="Primary mobile" class="md:hidden hidden border-t border-sand bg-linen" data-nav-panel>
+  <nav id="mobile-nav" aria-label="Primary mobile" class="lg:hidden hidden border-t border-sand bg-linen" data-nav-panel>
     <ul class="container-site flex flex-col py-3">
       {links.map((l) => (
         <li>
-          <a
-            href={url(l.href)}
-            aria-current={isActive(l.href) ? 'page' : undefined}
-            class:list={[
-              'block rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-sand/70 hover:text-teal',
-              isActive(l.href) && 'text-teal font-semibold',
-            ]}
-          >
+          <a href={url(l.href)} aria-current={isActive(l.href) ? 'page' : undefined} class:list={['block rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-leaf-soft hover:text-teal-deep', isActive(l.href) && 'font-semibold text-teal-deep']}>
             {l.label}
           </a>
         </li>
@@ -94,10 +73,7 @@ const isActive = (href: string) => (href === '/' ? here === '/' : here === href 
     };
     toggle.addEventListener('click', () => setOpen(panel.classList.contains('hidden')));
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !panel.classList.contains('hidden')) {
-        setOpen(false);
-        toggle.focus();
-      }
+      if (e.key === 'Escape' && !panel.classList.contains('hidden')) { setOpen(false); toggle.focus(); }
     });
   }
 </script>

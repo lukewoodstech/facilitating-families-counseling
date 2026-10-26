@@ -1,10 +1,13 @@
 ---
 import { getEntry, render } from 'astro:content';
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import Section from '../components/Section.astro';
 import Placeholder from '../components/Placeholder.astro';
 import ContactCTA from '../components/ContactCTA.astro';
+import { original } from '../lib/assets';
+import site from '../content/site.json';
 
 const page = await getEntry('pages', 'licenses-payments');
 if (!page) throw new Error('Missing src/content/pages/licenses-payments.md');
@@ -12,45 +15,42 @@ const d = page.data;
 const { Content } = await render(page);
 ---
 <BaseLayout title={d.title} description={d.description}>
-  <PageHero eyebrow={d.eyebrow} title={d.heading ?? d.title} />
+  <PageHero title={d.heading ?? d.title} />
 
   <Section>
+    <h2 class="text-h2" data-reveal>Serving Individuals and Families In</h2>
+    <ul class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5" aria-label="States">
+      {d.states?.map((s, i) => (
+        <li class="flex flex-col items-center rounded-card border border-sand bg-white p-4 text-center shadow-card" data-reveal style={`--reveal-delay:${i * 70}ms`}>
+          <Image src={original(s.image)} alt={`Outline of ${s.name} with the Facilitating Families Counseling tree inside`} width={320} densities={[1, 2]} format="webp" class="h-36 w-auto object-contain" loading="lazy" />
+          <span class="mt-4 font-display text-xl text-teal-deep">{s.name}</span>
+        </li>
+      ))}
+    </ul>
+    <p class="mt-8 max-w-2xl text-lead text-ink-soft" data-reveal>{site.telehealthLine}</p>
+    <div class="mt-6 max-w-2xl" data-reveal><Placeholder text="License numbers per state, if Emree wants them shown" /></div>
+  </Section>
+
+  <Section tone="linen" texture>
     <div class="grid gap-14 lg:grid-cols-2 lg:gap-20">
       <div data-reveal>
-        <p class="eyebrow mb-4">Licensed to serve</p>
-        <h2 class="text-h2">Serving Individuals and Families In</h2>
-        <ul class="mt-8 flex flex-wrap gap-3" aria-label="States served">
-          {d.states?.map((s) => (
-            <li class="rounded-pill border border-sand-deep bg-linen px-5 py-2.5 font-display text-lg text-teal">{s}</li>
-          ))}
+        <h2 class="text-h2">Payment Options:</h2>
+        <ul class="mt-6 divide-y divide-sand rounded-card border border-sand bg-cream">
+          {d.paymentOptions?.map((p) => <li class="px-5 py-4 text-lead">{p}</li>)}
         </ul>
-        <div class="mt-8"><Placeholder text="License numbers per state, if Emree wants them shown" /></div>
-        <div class="mt-4"><Placeholder text="In person, telehealth, or both? Office address if in person" /></div>
+        <div class="mt-6 space-y-3">
+          <Placeholder text="Private pay session fee (and sliding scale, if offered)" />
+          <Placeholder text="How clients pay and when payment is due" />
+          <Placeholder text="Cancellation / no-show policy" />
+        </div>
       </div>
-
-      <div class="space-y-12" data-reveal style="--reveal-delay:120ms">
-        <div>
-          <p class="eyebrow mb-4">Payments</p>
-          <h2 class="text-h2">Payment Options:</h2>
-          <ul class="mt-6 divide-y divide-sand rounded-card border border-sand bg-linen">
-            {d.paymentOptions?.map((p) => <li class="px-5 py-4 text-lead">{p}</li>)}
-          </ul>
-          <div class="mt-6 space-y-3">
-            <Placeholder text="Private pay session fee (and sliding scale, if offered)" />
-            <Placeholder text="How to pay and when payment is due (card on file, client portal, invoice)" />
-            <Placeholder text="Cancellation / no-show policy" />
-          </div>
-        </div>
-
-        <div>
-          <p class="eyebrow mb-4">Insurance</p>
-          <h2 class="text-h2">Credentialed with:</h2>
-          <ul class="mt-6 divide-y divide-sand rounded-card border border-sand bg-linen">
-            {d.insurers?.map((p) => <li class="px-5 py-4 text-lead">{p}</li>)}
-          </ul>
-          <div class="prose mt-6"><Content /></div>
-          <div class="mt-6"><Placeholder text="Confirm 'Regents' (is this Regence BlueCross BlueShield?) and the exact spelling of each insurer" /></div>
-        </div>
+      <div data-reveal style="--reveal-delay:120ms">
+        <h2 class="text-h2">Credentialed with:</h2>
+        <ul class="mt-6 divide-y divide-sand rounded-card border border-sand bg-cream">
+          {d.insurers?.map((p) => <li class="px-5 py-4 text-lead">{p}</li>)}
+        </ul>
+        <div class="prose mt-6"><Content /></div>
+        <div class="mt-6"><Placeholder text="Confirm 'Regents' (Regence BlueCross BlueShield?) and the exact spelling of each insurer" /></div>
       </div>
     </div>
   </Section>

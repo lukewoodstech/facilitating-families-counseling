@@ -18,10 +18,11 @@ npx astro check    # type-check .astro files
 
 - **Copy**: `src/content/pages/*.md` and `src/content/services/*.md`. Edit the markdown; the pages pick it up.
   Business facts (email, phone, crisis line) are in `src/content/site.json`.
-- **Verbatim source of truth**: `src/content/source-copy.md` (raw capture of the old site, typos included).
+- **Verbatim source of truth**: `src/content/source-copy.md` (raw capture of her Google Site, typos included).
+- **Her images**: `src/assets/original/` (logo, tree illustrations, state images, photo). Never redraw; trimmed/cropped layout copies live in `src/assets/`.
 - **Design tokens**: `src/styles/global.css`, the `@theme` block. Colors, fonts, type scale, spacing, radii, shadows, motion. Change them there and the whole site follows.
 - **Placeholders**: anything wrapped in `<Placeholder …/>` or `<PlaceholderImage …/>` is a visible `[TODO]` for missing content.
-- **Images**: `public/images/`. Placeholders are in `public/images/placeholders/`.
+- **New images** (e.g. the headshot): drop into `public/images/`.
 - **Open Graph image**: `public/og-default.png`, regenerate with `node scripts/make-og.mjs`.
 
 ## Deploy

@@ -9,37 +9,31 @@ import { glob } from 'astro/loaders';
 const services = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/services' }),
   schema: z.object({
+    /** Page heading, exactly as on Emree's page */
     title: z.string(),
-    /** Short name used on cards and in navigation */
+    /** Card heading, exactly as on Emree's home page */
     cardTitle: z.string(),
-    /** Card blurb (Emree's words from the old home / Scope of Practice page) */
-    summary: z.string(),
+    /** Card blurb, exactly as on Emree's home page. Omit when she never wrote one. */
+    summary: z.string().optional(),
+    /** Shown on the card when `summary` is missing */
+    summaryTodo: z.string().optional(),
     description: z.string(),
     order: z.number(),
-    image: z.object({ src: z.string(), alt: z.string(), todo: z.string().optional() }),
-    /** Notes about missing content, shown as a placeholder on the page */
+    /** File name of the original tree illustration in src/assets/original/ */
+    tree: z.string(),
+    treeAlt: z.string(),
     todos: z.array(z.string()).default([]),
   }),
 });
 
-/**
- * Standalone pages (home, about, services overview, licenses & payments, contact).
- * Structured fields live in frontmatter; long-form copy is the markdown body.
- */
 const pages = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/pages' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    eyebrow: z.string().optional(),
     heading: z.string().optional(),
-    hero: z
-      .object({
-        headline: z.string(),
-        subhead: z.string().optional(),
-      })
-      .optional(),
-    states: z.array(z.string()).optional(),
+    hero: z.object({ headline: z.string() }).optional(),
+    states: z.array(z.object({ name: z.string(), image: z.string() })).optional(),
     paymentOptions: z.array(z.string()).optional(),
     insurers: z.array(z.string()).optional(),
     todos: z.array(z.string()).default([]),

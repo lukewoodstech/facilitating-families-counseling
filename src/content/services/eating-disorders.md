@@ -1,13 +1,11 @@
 ---
 title: Eating Disorders
-cardTitle: Eating Disorders
+cardTitle: Eating Disorder
 summary: Collaborative strategies addressing eating disorder thought distortion and behaviors, tailored to developmental needs.
-description: Outpatient eating disorder therapy for anorexia, bulimia, orthorexia, and ARFID, with families involved in care. Facilitating Families Counseling.
+description: Eating disorder therapy by telehealth. Anorexia, bulimia, orthorexia, ARFID, and involving others in care. Facilitating Families Counseling.
 order: 1
-image:
-  src: /images/placeholders/service-eating-disorders.svg
-  alt: Placeholder for a calm lifestyle image on the Eating Disorders page
-  todo: "Real image for the Eating Disorders page (landscape, roughly 3:2, no text in the image)"
+tree: tree-eating-disorder.png
+treeAlt: Illustration of a single tree with deep roots, from the Facilitating Families Counseling logo family
 todos: []
 ---
 ## Anorexia, Bulimia, and Orthorexia

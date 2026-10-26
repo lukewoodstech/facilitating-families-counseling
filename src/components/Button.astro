@@ -1,29 +1,14 @@
 ---
 import { url } from '../lib/url';
-interface Props {
-  href: string;
-  variant?: 'primary' | 'secondary' | 'accent' | 'ghost';
-  size?: 'md' | 'lg';
-  class?: string;
-}
+interface Props { href: string; variant?: 'primary' | 'secondary' | 'ghost'; size?: 'md' | 'lg'; class?: string }
 const { href, variant = 'primary', size = 'md', class: extra = '' } = Astro.props;
 const variants = {
   primary: 'bg-teal text-cream hover:bg-teal-deep',
-  secondary: 'border border-teal text-teal hover:bg-teal-soft',
-  accent: 'bg-terracotta text-cream hover:bg-[#8b4229]',
-  ghost: 'text-teal hover:bg-sand/70',
+  secondary: 'border border-teal text-teal-deep hover:bg-teal-soft',
+  ghost: 'text-teal-deep hover:bg-leaf-soft',
 };
 const sizes = { md: 'px-6 py-3 text-[0.95rem]', lg: 'px-8 py-4 text-base' };
 ---
-<a
-  href={url(href)}
-  class:list={[
-    'inline-flex items-center justify-center gap-2 rounded-button font-semibold tracking-tight no-underline',
-    'transition-[background-color,color,transform] duration-200 motion-safe:hover:-translate-y-px',
-    variants[variant],
-    sizes[size],
-    extra,
-  ]}
->
+<a href={url(href)} class:list={['inline-flex items-center justify-center gap-2 rounded-button font-semibold tracking-tight no-underline transition-[background-color,color,transform] duration-200 motion-safe:hover:-translate-y-px', variants[variant], sizes[size], extra]}>
   <slot />
 </a>

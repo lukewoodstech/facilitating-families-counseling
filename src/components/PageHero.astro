@@ -1,12 +1,13 @@
 ---
-/** Header block for inner pages: eyebrow, h1, optional intro text in the slot. */
-interface Props { eyebrow?: string; title: string; }
-const { eyebrow, title } = Astro.props;
+/** Inner-page header: Emree's page heading, with the faint logo tree as an accent. */
+import LeafAccent from './LeafAccent.astro';
+interface Props { title: string }
+const { title } = Astro.props;
 ---
-<section class="texture-linen bg-linen border-b border-sand">
-  <div class="container-site py-section-sm md:py-section">
+<section class="texture-linen relative overflow-hidden border-b border-sand bg-linen">
+  <LeafAccent class="-right-16 -top-10 w-[22rem] md:w-[30rem]" />
+  <div class="container-site relative py-section-sm md:py-section">
     <div class="max-w-3xl" data-reveal>
-      {eyebrow && <p class="eyebrow mb-4">{eyebrow}</p>}
       <h1 class="text-h1">{title}</h1>
       <slot />
     </div>

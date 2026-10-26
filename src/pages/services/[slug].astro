@@ -1,12 +1,12 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import Section from '../../components/Section.astro';
 import Placeholder from '../../components/Placeholder.astro';
-import PlaceholderImage from '../../components/PlaceholderImage.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
-import Button from '../../components/Button.astro';
+import { original } from '../../lib/assets';
 import { url } from '../../lib/url';
 
 export async function getStaticPaths() {
@@ -17,42 +17,35 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const all = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 const others = all.filter((s) => s.id !== entry.id);
+const tree = original(entry.data.tree);
 ---
 <BaseLayout title={entry.data.title} description={entry.data.description}>
-  <PageHero eyebrow="Scope of Practice" title={entry.data.title}>
-    <p class="mt-4 max-w-2xl font-display text-lead italic text-ink-soft">{entry.data.summary}</p>
-  </PageHero>
+  <PageHero title={entry.data.title} />
 
   <Section>
     <div class="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
       <article class="prose max-w-none" data-reveal>
         <Content />
         {entry.data.todos.length > 0 && (
-          <div class="mt-10 space-y-3">
-            {entry.data.todos.map((t) => <Placeholder text={t} />)}
-          </div>
+          <div class="mt-10 space-y-3">{entry.data.todos.map((t) => <Placeholder text={t} />)}</div>
         )}
       </article>
-
-      <aside class="space-y-8 lg:sticky lg:top-8 lg:self-start" data-reveal style="--reveal-delay:120ms">
-        <PlaceholderImage src={entry.data.image.src} alt={entry.data.image.alt} width={1200} height={800} todo={entry.data.image.todo} />
-        <div class="rounded-card bg-linen p-6">
-          <p class="eyebrow mb-3">Ready when you are</p>
-          <p class="text-ink-soft">We are working together to bring about the change you deserve.</p>
-          <div class="mt-5"><Button href="/contact">Connect with me</Button></div>
+      <aside class="lg:sticky lg:top-8 lg:self-start" data-reveal style="--reveal-delay:120ms">
+        <div class="rounded-card bg-linen p-8 texture-linen">
+          <Image src={tree} alt={entry.data.treeAlt} width={640} densities={[1, 2]} format="webp" class="mx-auto h-auto w-full max-w-xs" loading="eager" />
         </div>
       </aside>
     </div>
   </Section>
 
   <Section tone="linen" size="sm" texture>
-    <p class="eyebrow mb-6" data-reveal>More ways I can help</p>
+    <h2 class="mb-6 text-h3" data-reveal>Scope of Practice</h2>
     <ul class="grid gap-3 sm:grid-cols-3">
       {others.map((s, i) => (
         <li data-reveal style={`--reveal-delay:${i * 80}ms`}>
-          <a href={url(`/services/${s.id}`)} class="group block h-full rounded-card border border-sand bg-cream p-5 no-underline shadow-card transition-transform duration-300 motion-safe:hover:-translate-y-0.5">
-            <span class="font-display text-h3 text-teal group-hover:text-teal-deep">{s.data.cardTitle}</span>
-            <span class="mt-2 block text-sm text-ink-soft">{s.data.summary}</span>
+          <a href={url(`/services/${s.id}`)} class="group flex h-full items-center gap-4 rounded-card border border-sand bg-cream p-4 no-underline shadow-card transition-transform duration-300 motion-safe:hover:-translate-y-0.5">
+            <Image src={original(s.data.tree)} alt="" width={112} densities={[1, 2]} format="webp" class="h-14 w-14 shrink-0 object-contain" loading="lazy" />
+            <span class="font-display text-lg text-teal-deep group-hover:text-teal">{s.data.cardTitle}</span>
           </a>
         </li>
       ))}

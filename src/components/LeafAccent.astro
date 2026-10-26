@@ -1,0 +1,13 @@
+---
+/**
+ * The logo tree, very faint, as a decorative watermark. It is the tree cropped
+ * straight out of Emree's wordmark (transparent), never a redraw. Purely decorative (aria-hidden).
+ */
+import { Image } from 'astro:assets';
+import mark from '../assets/logo-tree-transparent.png';
+interface Props { class?: string; opacity?: string; width?: number }
+const { class: extra = '', opacity = 'opacity-[0.07]', width = 560 } = Astro.props;
+---
+<div aria-hidden="true" class:list={['pointer-events-none absolute select-none', opacity, extra]}>
+  <Image src={mark} alt="" width={width} densities={[1, 2]} format="webp" class="h-auto w-full" loading="lazy" />
+</div>

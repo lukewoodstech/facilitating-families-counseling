@@ -1,42 +1,19 @@
 ---
 import { getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHero from '../components/PageHero.astro';
 import Section from '../components/Section.astro';
 import Placeholder from '../components/Placeholder.astro';
-import site from '../content/site.json';
+import ContactCTA from '../components/ContactCTA.astro';
 
 const page = await getEntry('pages', 'contact');
 if (!page) throw new Error('Missing src/content/pages/contact.md');
 const d = page.data;
 ---
 <BaseLayout title={d.title} description={d.description}>
-  <PageHero eyebrow={d.eyebrow} title={d.heading ?? d.title}>
-    <p class="mt-4 max-w-xl font-display text-lead italic text-ink-soft">Together, we validate those patterns and identify the best way to invite change.</p>
-  </PageHero>
-
-  <Section>
-    <div class="grid gap-6 md:grid-cols-2" data-reveal>
-      <a href={`mailto:${site.email}`} class="group flex flex-col gap-3 rounded-card border border-sand bg-linen p-8 no-underline shadow-card transition-transform duration-300 motion-safe:hover:-translate-y-1">
-        <span class="eyebrow">Email</span>
-        <span class="font-display text-xl text-teal group-hover:underline underline-offset-4 sm:text-2xl [overflow-wrap:anywhere]">{site.email}</span>
-        <span class="text-sm text-ink-soft">Opens your email app</span>
-      </a>
-      <a href={site.phoneHref} class="group flex flex-col gap-3 rounded-card border border-sand bg-linen p-8 no-underline shadow-card transition-transform duration-300 motion-safe:hover:-translate-y-1">
-        <span class="eyebrow">Phone</span>
-        <span class="font-display text-xl text-teal group-hover:underline underline-offset-4 sm:text-2xl">{site.phone}</span>
-        <span class="text-sm text-ink-soft">Call or leave a voicemail</span>
-      </a>
+  <ContactCTA as="h1" showTelehealth />
+  <Section size="sm">
+    <div class="max-w-xl" data-reveal>
+      {d.todos.map((t) => <Placeholder text={t} />)}
     </div>
-
-    <div class="mt-12 grid gap-4 md:grid-cols-3" data-reveal style="--reveal-delay:120ms">
-      <Placeholder text="Office hours or typical availability" />
-      <Placeholder text="Typical response time for email and voicemail" />
-      <Placeholder text="Location: telehealth only, or a physical office address" />
-    </div>
-
-    <p class="mt-12 max-w-2xl text-sm leading-relaxed text-ink-soft" data-reveal>
-      {site.crisisLine}
-    </p>
   </Section>
 </BaseLayout>

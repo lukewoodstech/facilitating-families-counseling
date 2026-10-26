@@ -14,8 +14,8 @@ far better. Everything below was built as described; the "Decisions to confirm" 
 | Route | Old Google Site page | Content source |
 | --- | --- | --- |
 | `/` | /home | `src/content/pages/home.md` + service summaries |
-| `/about` | NEW | `src/content/pages/about.md` (placeholders only) |
-| `/services` | /scope-of-practice | `src/content/pages/services.md` + services collection |
+| `/about` | NEW ("About Me") | `src/content/pages/about.md` (placeholders only) |
+| `/services` | /scope-of-practice (heading kept: "Scope of Practice") | `src/content/pages/services.md` + services collection |
 | `/services/eating-disorders` | /scope-of-practice/eating-disorders | `src/content/services/eating-disorders.md` |
 | `/services/couples-and-family` | /scope-of-practice/couples-and-family | `src/content/services/couples-and-family.md` |
 | `/services/individual-support` | /scope-of-practice/individual-support | `src/content/services/individual-support.md` |
@@ -35,17 +35,18 @@ facilitating-families-counseling/
 ├── CNAME                          # custom domain; only copied into dist when enabled
 ├── astro.config.mjs               # site/base switch (github sub-path vs custom domain)
 ├── public/
-│   ├── favicon.svg, og-default.png, robots.txt
-│   └── images/placeholders/*.svg  # sized placeholders with alt text
+│   ├── favicon.svg, og-default.png (wordmark on cream), robots.txt
+│   └── images/placeholders/about-headshot.svg
 ├── scripts/make-og.mjs            # regenerates og-default.png with sharp
 └── src/
     ├── content.config.ts          # collections: services, pages
     ├── content/
     │   ├── source-copy.md         # VERBATIM primary source (raw, uncorrected)
-    │   ├── older-version-copy.md  # VERBATIM secondary source
-    │   ├── site.json              # name, email, phone, crisis line
+        │   ├── site.json              # name, email, phone, crisis line
     │   ├── pages/*.md             # home, about, services, licenses-payments, contact
     │   └── services/*.md          # one file per service area
+    ├── assets/original/           # Emree's logo, tree illustrations, state images, photo (untouched)
+    ├── assets/*.png               # trimmed / cropped copies of the logo for layout (pixels untouched)
     ├── styles/global.css          # ALL design tokens (@theme) + base + prose + motion
     ├── lib/url.ts                 # base-path-aware href helper
     ├── layouts/BaseLayout.astro
@@ -63,10 +64,11 @@ facilitating-families-counseling/
 | `Footer` | contact info, site links, 988 crisis line, legal name |
 | `Button` | primary / secondary / accent / ghost link buttons |
 | `Section` | vertical rhythm + surface tone (cream / linen / sand / teal), optional linen texture |
-| `SectionHeading` | eyebrow + heading |
-| `PageHero` | inner-page header (eyebrow, h1, intro slot) |
-| `ServiceCard`, `ServiceGrid` | the four service cards, driven by the services collection |
-| `ContactCTA` | email + phone band used on most pages |
+| `PageHero` | inner-page header: her h1 with the faint logo tree |
+| `Divider` | organic wave section divider (as on her business card) |
+| `LeafAccent` | the logo tree, cropped from her wordmark, as a faint watermark |
+| `ServiceCard`, `ServiceGrid` | the four service cards with her original tree illustrations |
+| `ContactCTA` | "Connect With Me": Email + Phone over her hand-and-seedling photo |
 | `Placeholder` | visible `[TODO: ...]` marker for content Emree still owes |
 | `PlaceholderImage` | correctly sized placeholder `<img>` with alt text + TODO caption |
 
@@ -75,16 +77,17 @@ facilitating-families-counseling/
 Every value lives in one `@theme` block. Tailwind v4 turns each one into a utility
 *and* a CSS variable, so `bg-teal` and `var(--color-teal)` are the same token.
 
-**Palette** (all text pairings checked at WCAG AA, most well above 4.5:1)
+**Palette**, sampled from her logo (teal `#426b69`, leaf green `#8db277`). All text
+pairings pass WCAG AA.
 
 | Token | Hex | Use |
 | --- | --- | --- |
-| cream | `#f8f4ed` | page background |
-| linen | `#f1eae0` | alternate sections, cards |
-| sand / sand-deep | `#e6dacb` / `#cdbba3` | fills, borders |
-| ink / ink-soft | `#2a2724` / `#5e5750` | body / secondary text |
-| teal / teal-deep / teal-soft | `#1e4d48` / `#153a36` / `#d9e5e1` | headings, buttons, Core Belief block |
-| terracotta / terracotta-soft | `#a04e31` / `#f1dfd4` | eyebrows, links, highlights |
+| cream | `#faf7f1` | page background |
+| linen | `#f3eee5` | alternate sections |
+| sand / sand-deep | `#e9e2d5` / `#d3c9b6` | borders, rules |
+| ink / ink-soft | `#27302f` / `#5b6664` | body / secondary text |
+| teal / teal-deep / teal-soft | `#426b69` / `#2e4f4d` / `#dde8e5` | logo teal: buttons, Core Belief block, headings (deep) |
+| leaf / leaf-deep / leaf-soft | `#8db277` / `#48713a` / `#e6eedd` | logo green: decorative / small text / tinted bands |
 
 **Type**: Fraunces Variable (editorial serif, headings, pull quotes, italics with the
 "soft/wonky" axes turned up) + Instrument Sans Variable (body). Self-hosted via
@@ -100,8 +103,10 @@ Every value lives in one `@theme` block. Tailwind v4 turns each one into a utili
 
 ## 5. Copy handling
 
-Primary source wins everywhere. Verbatim captures: `src/content/source-copy.md`
-(primary) and `src/content/older-version-copy.md` (secondary).
+Source of truth: **only** `https://sites.google.com/view/facilitatingfamiliescounseling/`
+(every nav link followed, including the Scope of Practice sub-pages). The older
+`sites.google.com/facilitatingfamiliescounseling.com/ffc` version is ignored entirely.
+Verbatim capture: `src/content/source-copy.md` (raw, typos preserved).
 
 ### Typo fixes applied (please confirm)
 
@@ -115,102 +120,61 @@ Primary source wins everywhere. Verbatim captures: `src/content/source-copy.md`
 | 6 | Eating Disorders heading | `Orthoxia` | `Orthorexia` |
 | 7 | Eating Disorders heading | `Disorder(ARFID)` | `Disorder (ARFID)` |
 | 8 | Eating Disorders | `teanagers` | `teenagers` |
-| 9 | Home, card blurb | `Conscious transformations` + line break + `identifying…` | joined into one sentence on the card |
+| 9 | Home card | `Conscious transformations` + line break + `identifying…` | joined into one sentence |
 
-**Left as written (not obvious enough to touch, flagged for Emree):**
-`patients who;` (semicolon), `ie choking allergies, or medical issues` (likely
-"i.e. choking, allergies, or medical issues"), `You have Strengths.` (capital S),
-`Regents, Blue Cross Blue Shield` (likely "Regence"), `Select Health` (brand spells it
-"SelectHealth"), `Eating Disorder` / `Couple & Family` card titles (singular on the old
-site; the cards now use the page names "Eating Disorders" / "Couples & Family" — the
-blurbs are untouched).
+Left exactly as written (flagged, not obvious enough to touch): `patients who;`,
+`ie choking allergies, or medical issues`, `You have Strengths.`,
+`Regents, Blue Cross Blue Shield`, `Select Health`.
 
-### Where the older version was used
+### Her words used as display text (verbatim)
+- Hero headline: "I believe in change." (first sentence of Core Belief)
+- Everything else on the site is her page copy under her own headings.
 
-Only once: the correct spellings **Minnesota** and **Wisconsin** (fixes 4 and 5
-above). Nothing else from the older version is on the site. Note the older version
-has a completely different, softer Core Belief paragraph. Per the rules the primary
-wins, but it is worth asking Emree which one she wants.
-
-### Emree's sentences reused as display text (all verbatim)
-
-- Hero headline: "I believe in change." Subhead: "Our choice is not if we change but how we change." (Core Belief)
-- Trauma card blurb (the old site had only dots): "Trauma does not have to keep playing out in your brain or in your life or in your relationships." (Trauma page)
-- Home About teaser quote and About page "Approach" quote: from Individual Support
-- Services overview intro: "My hope is that together we can identify ineffective interactions and the patterns that keep them alive." (Core Belief)
-- Contact page intro: "Together, we validate those patterns and identify the best way to invite change." (Individual Support)
-- Service page sidebar: "We are working together to bring about the change you deserve." (Individual Support)
-
-### Text that is NOT Emree's (utility copy I wrote; swap freely)
-
-Nav labels, button labels ("Connect with me", "Explore services", "Learn more"),
-section headings "How I can help", "Hello, I'm Emree.", "Training & licensure",
-"How I work", "Ready when you are", "More ways I can help", the About page's
-"Licensed therapist" line, the footer's states line, the 988 crisis line, the 404
-page, and all meta descriptions.
+### Text that is NOT Emree's (review list)
+1. **Nav labels**: "Home", "About Me", "Scope of Practice", "Licenses & Payments", "Connect With Me" ("About Me" is the new page name; the rest match her headings/nav)
+2. **Mobile menu button**: "Menu" / "Close". **Skip link**: "Skip to content"
+3. **Hero buttons**: "Connect With Me", "Scope of Practice" (her headings reused as labels)
+4. **Telehealth sentence** (requested): "All sessions are held virtually by telehealth for clients in Minnesota, Wisconsin, Wyoming, Idaho, and Utah." On Licenses & Payments and Connect With Me.
+5. **About Me page labels**: "About Me", "Bio", "Credentials", "Approach" + the `[TODO]` placeholders
+6. **Service pages**: "Scope of Practice" heading over the links to the other three services (her heading, my placement)
+7. **Footer**: crisis line "If you are in crisis or thinking about suicide, call or text 988 (Suicide & Crisis Lifeline), available 24/7. If you are in immediate danger, call 911."; "© 2026 Facilitating Families Counseling, LLC"; "Connect With Me" / "Email:" / "Phone:" (hers)
+8. **404 page**: "Page not found", buttons "Home", "Connect With Me"
+9. **`[TODO: …]` placeholder texts** (all pages)
+10. **Image alt text** for every image
+11. **Browser titles and meta descriptions** for every page (`src/content/pages/*.md`, `src/content/services/*.md`, `src/content/site.json`)
+12. **Card small-caps labels** "Email:" / "Phone:" styling is mine; the words are hers
 
 ### Thin or empty pages (not filled)
+- **Trauma**: one paragraph. A `[TODO]` asks if she wants to say more.
+- **Trauma card blurb**: her site shows dots. `[TODO]` on the card.
+- **About Me**: no copy exists; placeholders only. Her business card shows "EmRee M. Pugmire, LMFT, Licensed Marriage & Family Therapist" and the values "Intentionality · Curiosity · Sustainability", not used because the site is the only copy source.
+- **Connect With Me**: email and phone only, as on her site. One optional `[TODO]` for response time.
+- **Licenses & Payments**: no fees, policies, license numbers on her site; placeholders.
 
-- **Trauma**: one paragraph. Left as is, with a TODO asking if she wants to say more.
-- **Scope of Practice → Trauma blurb**: was literally "....................." on the old site.
-- **About**: no copy exists. Layout built with placeholders only.
-- **Contact**: nothing beyond email/phone exists. Placeholders for hours, location, response time.
-- **Licenses & Payments**: no fees, policies, or license numbers exist. Placeholders added.
+## 6. Images (all from her site, in `src/assets/original/`)
+- `logo-wordmark.png` (header, hero, OG image), `logo-mark.png` (white background; kept for reference)
+- `tree-eating-disorder.png`, `tree-couple-and-family.png`, `tree-individual-support.png`, `tree-trauma.png` (service cards and service pages; the rooted tree also sits in the home hero)
+- `state-*.png` (five states on Licenses & Payments)
+- `photo-hand-seedling.jpg` (soft background behind Connect With Me, as on her site)
+- `home-card-*.png`, `bg-teal-blur.jpg` (downloaded, unused)
+- Derived for layout only: `src/assets/logo-wordmark-trimmed.png`, `logo-mark-trimmed.png` (transparent margins trimmed), `logo-tree-transparent.png` (tree cropped out of the wordmark, used as the faint watermark). No redrawing.
+- Still needed: headshot for About Me.
 
-## 6. Placeholders to collect from Emree
+## 7. Telehealth
+No office, address, hours, map, or in-person wording anywhere, including meta
+descriptions. Contact and footer carry email and phone exactly as on her site.
 
-Every `[TODO]` on the site, grouped by page. Also listed in `CONTENT-TODO.md`.
+## 8. Deployment
+- Push to `main` → `.github/workflows/deploy.yml` builds (Node 24) and deploys to GitHub Pages.
+- Until DNS is set up the site builds for `https://lukewoodstech.github.io/facilitating-families-counseling/`.
+- When DNS points `facilitatingfamiliescounseling.com` at GitHub Pages: set the repo Actions
+  **variable** `CUSTOM_DOMAIN_ENABLED=true`. The workflow then builds for the root path and
+  copies `CNAME` into `dist/`. DNS: four `A` records on the apex → 185.199.108.153,
+  185.199.109.153, 185.199.110.153, 185.199.111.153; `CNAME www` → `lukewoodstech.github.io`.
+  Then tick "Enforce HTTPS" in Settings → Pages.
 
-**About Me**
-1. Full name as she wants it displayed
-2. Credentials / license type(s) (e.g. LMFT), and whether to show license numbers
-3. Headshot (portrait, 4:5 or square, ≥1200px short side)
-4. Bio
-5. Approach: how she works, what a first session is like, modalities
-6. Education, memberships, certifications (e.g. Lifespan Integration training)
-
-**Home**
-7. Last name next to "Emree" in the About teaser
-8. A 2–3 sentence About teaser (can be cut from the bio)
-
-**Licenses & Payments**
-9. Private pay session fee, sliding scale yes/no
-10. How to pay and when (card on file, portal, invoice)
-11. Cancellation / no-show policy
-12. License numbers per state (optional)
-13. In person, telehealth, or both; office address if in person
-14. Confirm "Regents" → Regence? and exact insurer spellings
-
-**Contact**
-15. Office hours / availability
-16. Typical response time
-17. Location (telehealth only or address)
-
-**Services**
-18. Trauma: anything more she wants to say
-19. One real image for each service page (landscape, ~3:2): Eating Disorders, Couples & Family, Individual Support, Trauma
-
-**Images summary**: headshot (About + home teaser), 4 service page images. The home
-hero intentionally has no photo (abstract warm treatment). A real Open Graph image can
-replace the generated `public/og-default.png` later.
-
-## 7. Deployment
-
-- Push to `main` → `.github/workflows/deploy.yml` builds and deploys to GitHub Pages.
-- Until DNS is set up, the site builds for `https://lukewoodstech.github.io/facilitating-families-counseling/` (Astro `base` is set from `DEPLOY_TARGET=github`).
-- When DNS for facilitatingfamiliescounseling.com points at GitHub Pages: set the repo
-  Actions **variable** `CUSTOM_DOMAIN_ENABLED=true`. The workflow then builds for the
-  root path and copies `CNAME` into `dist/`. GitHub Pages picks up the domain from it.
-- DNS to set at the registrar: `A` records for the apex → 185.199.108.153,
-  185.199.109.153, 185.199.110.153, 185.199.111.153, and `CNAME www` →
-  `lukewoodstech.github.io`. Then tick "Enforce HTTPS" in repo Settings → Pages.
-
-## 8. Things I'm unsure about / decisions to confirm
-
-1. **Which Core Belief?** Primary (used) vs the older version's rewritten paragraph.
-2. **"Regents"** insurer: Regence BlueCross BlueShield? Also whether "Blue Cross Blue Shield" is a separate line.
-3. **Card titles**: cards use the page names (plural "Eating Disorders", "Couples & Family"). The old home page used "Eating Disorder" and "Couple & Family". Easy to revert.
-4. **Orthoxia → Orthorexia**: confident, but it is a heading on her page.
-5. **Repo visibility**: created **public** because GitHub Pages on a free personal account requires a public repo. All content is already public on the Google Site. Flip to private if the account gets upgraded.
-6. The old site's mailto link pointed at a misspelled domain (`…counciling.com`). The new site uses `emree@facilitatingfamiliescounseling.com` as specified.
-7. Footer tagline "Therapy is not a substitute for emergency care." is mine; remove if she dislikes it.
+## 9. Open questions
+1. "Regents" insurer: Regence BlueCross BlueShield?
+2. Card headings use her home-page wording ("Eating Disorder", "Couple & Family"); page headings use her page titles ("Eating Disorders", "Couples and Family"). Intentional, matches her site.
+3. Repo is **public** because GitHub Pages on a free personal account requires it.
+4. The old site's mailto pointed at a misspelled domain (`…counciling.com`); the new site uses `emree@facilitatingfamiliescounseling.com`.

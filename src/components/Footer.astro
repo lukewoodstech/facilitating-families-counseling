@@ -1,56 +1,43 @@
 ---
+import { Image } from 'astro:assets';
+import mark from '../assets/logo-tree-transparent.png';
 import site from '../content/site.json';
 import { url } from '../lib/url';
 const year = new Date().getFullYear();
 const links = [
+  { href: '/', label: 'Home' },
   { href: '/about', label: 'About Me' },
-  { href: '/services', label: 'Services' },
+  { href: '/services', label: 'Scope of Practice' },
   { href: '/services/eating-disorders', label: 'Eating Disorders' },
-  { href: '/services/couples-and-family', label: 'Couples & Family' },
+  { href: '/services/couples-and-family', label: 'Couples and Family' },
   { href: '/services/individual-support', label: 'Individual Support' },
   { href: '/services/trauma', label: 'Trauma' },
   { href: '/licenses-payments', label: 'Licenses & Payments' },
-  { href: '/contact', label: 'Contact' },
 ];
 ---
-<footer class="surface-teal bg-teal text-cream/90 mt-section">
+<footer class="surface-teal relative mt-section bg-teal-deep text-cream/90">
   <div class="container-site py-section-sm">
-    <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+    <div class="grid gap-10 md:grid-cols-[1.3fr_1fr_1fr]">
       <div class="max-w-md">
-        <p class="font-display text-2xl text-cream">Facilitating Families Counseling, LLC</p>
-        <p class="mt-3 text-sm leading-relaxed text-cream/75">Serving individuals and families in Minnesota, Wisconsin, Wyoming, Idaho, and Utah.</p>
-        <p class="mt-6 rounded-card border border-cream/20 bg-teal-deep/60 p-4 text-sm leading-relaxed text-cream/90">
-          <strong class="font-semibold text-cream">In crisis?</strong> {site.crisisLine}
+        <Image src={mark} alt="" width={80} densities={[1, 2]} format="webp" class="h-auto w-16 opacity-95" loading="lazy" />
+        <p class="mt-4 font-display text-2xl text-cream">{site.legalName}</p>
+        <p class="mt-6 rounded-card border border-cream/15 bg-teal/40 p-4 text-sm leading-relaxed text-cream/90">
+          {site.crisisLine}
         </p>
       </div>
 
       <nav aria-label="Footer">
-        <p class="eyebrow mb-4">Explore</p>
         <ul class="space-y-2 text-[0.95rem]">
-          {links.map((l) => (
-            <li><a href={url(l.href)} class="text-cream/85 hover:text-cream underline-offset-4 hover:underline">{l.label}</a></li>
-          ))}
+          {links.map((l) => (<li><a href={url(l.href)} class="text-cream/85 underline-offset-4 hover:text-cream hover:underline">{l.label}</a></li>))}
         </ul>
       </nav>
 
       <div>
-        <p class="eyebrow mb-4">Connect With Me</p>
-        <ul class="space-y-3 text-[0.95rem]">
-          <li>
-            <span class="block text-xs uppercase tracking-wider text-cream/60">Email</span>
-            <a href={`mailto:${site.email}`} class="text-cream hover:underline underline-offset-4 [overflow-wrap:anywhere]">{site.email}</a>
-          </li>
-          <li>
-            <span class="block text-xs uppercase tracking-wider text-cream/60">Phone</span>
-            <a href={site.phoneHref} class="text-cream hover:underline underline-offset-4">{site.phone}</a>
-          </li>
-        </ul>
+        <p class="font-display text-xl text-cream">Connect With Me</p>
+        <p class="mt-4 text-[0.95rem]">Email: <a href={`mailto:${site.email}`} class="text-cream underline-offset-4 hover:underline [overflow-wrap:anywhere]">{site.email}</a></p>
+        <p class="mt-2 text-[0.95rem]">Phone: <a href={site.phoneHref} class="text-cream underline-offset-4 hover:underline">{site.phone}</a></p>
       </div>
     </div>
-
-    <div class="mt-12 flex flex-col gap-2 border-t border-cream/15 pt-6 text-xs text-cream/60 sm:flex-row sm:justify-between">
-      <p>&copy; {year} {site.legalName}. All rights reserved.</p>
-      <p>Therapy is not a substitute for emergency care.</p>
-    </div>
+    <p class="mt-12 border-t border-cream/15 pt-6 text-xs text-cream/60">&copy; {year} {site.legalName}</p>
   </div>
 </footer>

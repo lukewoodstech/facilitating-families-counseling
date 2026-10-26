@@ -1,13 +1,11 @@
 ---
 title: Couples and Family
-cardTitle: Couples & Family
+cardTitle: Couple & Family
 summary: Conscious transformations identifying ineffective patterns, exploring alternatives and applying productive patterns that strengthen interactions.
-description: Couples and family therapy for every phase of the family developmental cycle, including high conflict couples. Facilitating Families Counseling.
+description: Couples and family therapy by telehealth for every phase of the family developmental cycle. Facilitating Families Counseling.
 order: 2
-image:
-  src: /images/placeholders/service-couples-and-family.svg
-  alt: Placeholder for a calm lifestyle image on the Couples and Family page
-  todo: "Real image for the Couples and Family page (landscape, roughly 3:2)"
+tree: tree-couple-and-family.png
+treeAlt: Illustration of a family of three trees growing together
 todos: []
 ---
 I enjoy working with all phases of the family developmental cycle not limited to but including: premarital, newly married, married without children, married with young children, blended families, families with teens, families with young adults, families launching children, empty nest adjustments, parenting adult children, aging parents, and family reunification.

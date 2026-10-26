@@ -11,11 +11,7 @@ if (!page) throw new Error('Missing src/content/pages/services.md');
 const d = page.data;
 ---
 <BaseLayout title={d.title} description={d.description}>
-  <PageHero eyebrow={d.eyebrow} title={d.heading ?? d.title}>
-    <p class="mt-4 font-display text-lead italic text-ink-soft">My hope is that together we can identify ineffective interactions and the patterns that keep them alive.</p>
-  </PageHero>
-  <Section>
-    <ServiceGrid />
-  </Section>
+  <PageHero title={d.heading ?? d.title} />
+  <Section><ServiceGrid /></Section>
   <ContactCTA />
 </BaseLayout>

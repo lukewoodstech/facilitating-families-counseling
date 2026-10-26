@@ -1,10 +1,9 @@
 ---
 title: Facilitating Families Counseling
-description: Facilitating Families Counseling, LLC. I believe in change. Therapy for eating disorders, couples and families, individual support, and trauma in Minnesota, Wisconsin, Wyoming, Idaho, and Utah.
+description: Facilitating Families Counseling, LLC. Helping Families Heal. Telehealth therapy for eating disorders, couples and family, individual support, and trauma.
 hero:
   headline: I believe in change.
-  subhead: Our choice is not if we change but how we change.
-eyebrow: Core Belief
+heading: Core Belief
 todos: []
 ---
 I believe in change. I believe that change is available to all. I believe that change occurs on a constant basis. Our choice is not if we change but how we change.
