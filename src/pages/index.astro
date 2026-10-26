@@ -20,8 +20,8 @@ const hero = home.data.hero!;
   <!-- HERO: her logo and tree mark carry it. No photo here by design. -->
   <section class="texture-linen relative overflow-hidden bg-cream">
     <LeafAccent class="-left-24 -bottom-24 w-[26rem] md:w-[36rem]" opacity="opacity-[0.06]" />
-    <div class="container-site relative py-section md:py-[clamp(6rem,4rem+7vw,10rem)]">
-      <div class="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+    <div class="container-site relative py-section-sm md:py-[clamp(3.5rem,2rem+4vw,6rem)]">
+      <div class="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
         <div class="max-w-2xl" data-reveal>
           <h1 class="text-display font-display text-teal-deep">{hero.headline}</h1>
           <div class="mt-10 flex flex-wrap gap-3">
@@ -29,7 +29,7 @@ const hero = home.data.hero!;
             <Button href="/services" variant="secondary" size="lg">Scope of Practice</Button>
           </div>
         </div>
-        <div class="relative mx-auto w-full max-w-xs sm:max-w-sm lg:max-w-md" data-reveal style="--reveal-delay:150ms">
+        <div class="relative mx-auto w-full max-w-[16rem] sm:max-w-xs lg:max-w-sm" data-reveal style="--reveal-delay:150ms">
           <div class="absolute inset-[10%] -z-10 rounded-full bg-leaf-soft blur-3xl" aria-hidden="true"></div>
           <Image src={mark} alt="The Facilitating Families Counseling tree: three figures growing together as one tree" width={720} densities={[1, 2]} format="webp" class="h-auto w-full" loading="eager" />
         </div>
