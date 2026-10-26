@@ -9,8 +9,7 @@ import Button from '../components/Button.astro';
 import Divider from '../components/Divider.astro';
 import LeafAccent from '../components/LeafAccent.astro';
 import wordmark from '../assets/logo-wordmark-trimmed.png';
-import { original } from '../lib/assets';
-const heroTree = original('tree-eating-disorder.png');
+import mark from '../assets/logo-mark-transparent.png';
 import site from '../content/site.json';
 
 const home = await getEntry('pages', 'home');
@@ -34,7 +33,7 @@ const hero = home.data.hero!;
         </div>
         <div class="relative mx-auto w-full max-w-xs sm:max-w-sm lg:max-w-md" data-reveal style="--reveal-delay:150ms">
           <div class="absolute inset-[10%] -z-10 rounded-full bg-leaf-soft blur-3xl" aria-hidden="true"></div>
-          <Image src={heroTree} alt="Illustration of a tree with deep roots, from Emree's site" width={720} densities={[1, 2]} format="webp" class="h-auto w-full" loading="eager" />
+          <Image src={mark} alt="The Facilitating Families Counseling tree: three figures growing together as one tree" width={720} densities={[1, 2]} format="webp" class="h-auto w-full" loading="eager" />
         </div>
       </div>
     </div>

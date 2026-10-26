@@ -66,7 +66,7 @@ facilitating-families-counseling/
 | `Section` | vertical rhythm + surface tone (cream / linen / sand / teal), optional linen texture |
 | `PageHero` | inner-page header: her h1 with the faint logo tree |
 | `Divider` | organic wave section divider (as on her business card) |
-| `LeafAccent` | the logo tree, cropped from her wordmark, as a faint watermark |
+| `LeafAccent` | the logo tree as a faint watermark |
 | `ServiceCard`, `ServiceGrid` | the four service cards with her original tree illustrations |
 | `ContactCTA` | "Connect With Me": Email + Phone over her hand-and-seedling photo |
 | `Placeholder` | visible `[TODO: ...]` marker for content Emree still owes |
@@ -152,12 +152,12 @@ Left exactly as written (flagged, not obvious enough to touch): `patients who;`,
 - **Licenses & Payments**: no fees, policies, license numbers on her site; placeholders.
 
 ## 6. Images (all from her site, in `src/assets/original/`)
-- `logo-wordmark.png` (header, hero, OG image), `logo-mark.png` (white background; kept for reference)
-- `tree-eating-disorder.png`, `tree-couple-and-family.png`, `tree-individual-support.png`, `tree-trauma.png` (service cards and service pages; the rooted tree also sits in the home hero)
+- `logo-wordmark.png` (header, hero, OG image), `logo-mark.png` (the main logo tree: hero, faint watermark, footer)
+- `tree-eating-disorder.png`, `tree-couple-and-family.png`, `tree-individual-support.png`, `tree-trauma.png` (service cards and service pages only)
 - `state-*.png` (five states on Licenses & Payments)
 - `photo-hand-seedling.jpg` (soft background behind Connect With Me, as on her site)
 - `home-card-*.png`, `bg-teal-blur.jpg` (downloaded, unused)
-- Derived for layout only: `src/assets/logo-wordmark-trimmed.png`, `logo-mark-trimmed.png` (transparent margins trimmed), `logo-tree-transparent.png` (tree cropped out of the wordmark, used as the faint watermark). No redrawing.
+- Derived for layout only: `src/assets/logo-wordmark-trimmed.png` (transparent margins trimmed) and `src/assets/logo-mark-transparent.png` (her mark with its white background removed by un-blending the edge pixels; no shapes redrawn).
 - Still needed: headshot for About Me.
 
 ## 7. Telehealth
