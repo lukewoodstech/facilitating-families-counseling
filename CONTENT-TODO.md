@@ -12,7 +12,7 @@ to the content file named and delete the matching `<Placeholder …/>`.
 - [ ] Trauma card blurb (her site shows only "....................." under Trauma)
 
 ## Licenses & Payments (`src/content/pages/licenses-payments.md`)
-- [ ] License numbers per state (optional)
+- [x] License numbers per state (from her provider profile, 2026-10-26)
 
 ## Trauma page (`src/content/services/trauma.md`)
 - [ ] Anything more she wants to say (page is one paragraph)

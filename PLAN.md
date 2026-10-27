@@ -136,15 +136,16 @@ Left exactly as written (flagged, not obvious enough to touch): `patients who;`,
 1. **Nav labels**: "Home", "About Me", "Scope of Practice", "Licenses & Payments" ("About Me" is the new page name; the rest match her nav)
 2. **Mobile menu button**: "Menu" / "Close". **Skip link**: "Skip to content"
 3. **Hero buttons**: "Connect With Me", "Scope of Practice" (her headings reused as labels)
-4. **Telehealth sentence** (requested): "All sessions are held virtually by telehealth." On Licenses & Payments and Connect With Me. **Privacy sentence** (requested): "All text messages and emails are securely encrypted." On Connect With Me.
-5. **About Me page**: heading "About Me", "EmRee M. Pugmire, LMFT" and "Licensed Marriage and Family Therapist" (supplied by Luke), + the `[TODO]` placeholders
-6. **Service pages**: "Scope of Practice" heading over the links to the other three services (her heading, my placement)
-7. **Footer**: crisis line "If you are in crisis or thinking about suicide, call or text 988 (Suicide & Crisis Lifeline), available 24/7. If you are in immediate danger, call 911."; "© 2026 Facilitating Families Counseling, LLC"; "Connect With Me" / "Email:" / "Phone:" (hers)
-8. **404 page**: "Page not found", buttons "Home", "Connect With Me"
-9. **`[TODO: …]` placeholder texts** (all pages)
-10. **Image alt text** for every image
-11. **Browser titles and meta descriptions** for every page (`src/content/pages/*.md`, `src/content/services/*.md`, `src/content/site.json`)
-12. **Card small-caps labels** "Email:" / "Phone:" styling is mine; the words are hers
+4. **License label**: the word "License" before each number on the state cards (numbers are from her provider profile; expiry dates and taxonomy codes deliberately not shown).
+5. **Telehealth sentence** (requested): "All sessions are held virtually by telehealth." On Licenses & Payments and Connect With Me. **Privacy sentence** (requested): "All text messages and emails are securely encrypted." On Connect With Me.
+6. **About Me page**: heading "About Me", "EmRee M. Pugmire, LMFT" and "Licensed Marriage and Family Therapist" (supplied by Luke), + the `[TODO]` placeholders
+7. **Service pages**: "Scope of Practice" heading over the links to the other three services (her heading, my placement)
+8. **Footer**: crisis line "If you are in crisis or thinking about suicide, call or text 988 (Suicide & Crisis Lifeline), available 24/7. If you are in immediate danger, call 911."; "© 2026 Facilitating Families Counseling, LLC"; "Connect With Me" / "Email:" / "Phone:" (hers)
+9. **404 page**: "Page not found", buttons "Home", "Connect With Me"
+10. **`[TODO: …]` placeholder texts** (all pages)
+11. **Image alt text** for every image
+12. **Browser titles and meta descriptions** for every page (`src/content/pages/*.md`, `src/content/services/*.md`, `src/content/site.json`)
+13. **Card small-caps labels** "Email:" / "Phone:" styling is mine; the words are hers
 
 ### Thin or empty pages (not filled)
 - **Trauma**: one paragraph. A `[TODO]` asks if she wants to say more.

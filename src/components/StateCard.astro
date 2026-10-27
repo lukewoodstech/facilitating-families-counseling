@@ -7,8 +7,8 @@
 import { Image } from 'astro:assets';
 import mark from '../assets/logo-mark-transparent.png';
 import states from '../data/states.json';
-interface Props { name: string; index?: number }
-const { name, index = 0 } = Astro.props;
+interface Props { name: string; license?: string; index?: number }
+const { name, license, index = 0 } = Astro.props;
 const state = states.find((s) => s.name === name);
 if (!state) throw new Error(`No outline for state "${name}" in src/data/states.json`);
 ---
@@ -28,4 +28,9 @@ if (!state) throw new Error(`No outline for state "${name}" in src/data/states.j
     />
   </div>
   <span class="mt-4 font-display text-xl text-teal-deep">{name}</span>
+  {license && (
+    <span class="mt-1 text-sm text-ink-soft">
+      <span class="sr-only">License number </span><span aria-hidden="true">License </span>{license}
+    </span>
+  )}
 </li>

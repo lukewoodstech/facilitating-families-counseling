@@ -3,7 +3,6 @@ import { getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import Section from '../components/Section.astro';
-import Placeholder from '../components/Placeholder.astro';
 import ContactCTA from '../components/ContactCTA.astro';
 import StateCard from '../components/StateCard.astro';
 import site from '../content/site.json';
@@ -19,10 +18,9 @@ const { Content } = await render(page);
   <Section>
     <h2 class="text-h2" data-reveal>Serving Individuals and Families In</h2>
     <ul class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5" aria-label="States">
-      {d.states?.map((s, i) => <StateCard name={s} index={i} />)}
+      {d.states?.map((s, i) => <StateCard name={s.name} license={s.license} index={i} />)}
     </ul>
     <p class="mt-8 max-w-2xl text-lead text-ink-soft" data-reveal>{site.telehealthLine}</p>
-    <div class="mt-6 max-w-2xl" data-reveal><Placeholder text="License numbers per state, if Emree wants them shown" /></div>
   </Section>
 
   <Section tone="linen" texture>
