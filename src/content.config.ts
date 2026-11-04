@@ -36,6 +36,9 @@ const pages = defineCollection({
     states: z.array(z.object({ name: z.string(), license: z.string().optional() })).optional(),
     paymentOptions: z.array(z.string()).optional(),
     insurers: z.array(z.string()).optional(),
+    /** About page: "My Dopamine Playlist" cards (EmRee's favorite things, verbatim) */
+    playlistTitle: z.string().optional(),
+    playlist: z.array(z.object({ title: z.string(), items: z.array(z.string()) })).optional(),
     todos: z.array(z.string()).default([]),
   }),
 });

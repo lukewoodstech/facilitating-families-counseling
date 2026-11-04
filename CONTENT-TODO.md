@@ -6,7 +6,7 @@ to the content file named and delete the matching `<Placeholder …/>`.
 ## About Me (`src/pages/about.astro`, `src/content/pages/about.md`)
 - [x] Name and credentials: EmRee M. Pugmire, LMFT, Licensed Marriage and Family Therapist (from Luke)
 - [ ] Headshot: portrait, 4:5 or square, at least 1200px on the short side → `public/images/`
-- [ ] Short about section, in her words (who she is, how long she has practiced, how she works)
+- [x] About text and favorites, in her words (received 2026-11-04; favorites shown as "My Dopamine Playlist" cards, per her request)
 
 ## Home (`src/content/services/trauma.md`)
 - [ ] Trauma card blurb (her site shows only "....................." under Trauma)

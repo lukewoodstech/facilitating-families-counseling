@@ -163,3 +163,15 @@ html.js [data-reveal].is-visible { opacity: 1; translate: 0 0; }
 @media (prefers-reduced-motion: reduce) {
   html.js [data-reveal] { opacity: 1; translate: 0 0; transition: none; }
 }
+
+/* About page: "My Dopamine Playlist" row. Bleeds to the gutter edge so cards
+   scroll past the page margin, with soft fades at both ends. */
+.playlist {
+  margin-inline: calc(var(--spacing-gutter) * -1);
+  padding-inline: var(--spacing-gutter);
+  scroll-padding-inline: var(--spacing-gutter);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-sand-deep) transparent;
+  mask-image: linear-gradient(to right, transparent, #000 var(--spacing-gutter), #000 calc(100% - var(--spacing-gutter)), transparent);
+}
+.playlist:focus-visible { outline-offset: -3px; }

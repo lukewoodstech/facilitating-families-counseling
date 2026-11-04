@@ -150,7 +150,7 @@ Left exactly as written (flagged, not obvious enough to touch): `patients who;`,
 ### Thin or empty pages (not filled)
 - **Trauma**: one paragraph. A `[TODO]` asks if she wants to say more.
 - **Trauma card blurb**: her site shows dots. `[TODO]` on the card.
-- **About Me**: name and credentials are in; headshot and short bio are placeholders. The values on her card (Intentionality · Curiosity · Sustainability) are not used.
+- **About Me**: name, credentials, her About text and "My Dopamine Playlist" (her favorites) are in; only the headshot is a placeholder. Her heading "About EmRee" is not shown (the page title is already "About Me"); her heading "A Few of My Favorite Things" was replaced by "My Dopamine Playlist" at her request. The values on her card (Intentionality · Curiosity · Sustainability) are not used.
 - **Connect With Me**: email and phone only, as on her site, plus the telehealth and encryption lines.
 - **Licenses & Payments**: one optional placeholder for license numbers. No fee or policy placeholders (Luke: not needed).
 
