@@ -20,9 +20,9 @@ I learned how to recognize that voice while working with many patients in an inp
 
 ## Avoidant/Restrictive Food Intake Disorder (ARFID)
 
-I have worked with ARFID impacting patients who;
+I have worked with ARFID impacting patients who:
 
-1. have had an experience with food that caused them to be **fearful** ie choking allergies, or medical issues.
+1. have had an experience with food that caused them to be **fearful**, i.e., choking, allergies, or medical issues.
 2. with individuals who lack the hormone **ghrelin**.
 3. with individuals who have **heightened sensory** issues. These sensory issues often are co-occurring with autism spectrum behaviors.
 

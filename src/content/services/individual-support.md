@@ -8,7 +8,7 @@ tree: tree-individual-support.png
 treeAlt: Illustration of a young seedling with two leaves and spreading roots
 todos: []
 ---
-I am a strength based therapist. You have **Strengths**. You have always had strengths. When they are silenced by other intrusive patterns, you doubt you ever had them. Through exploration and fact checking, we will activate behaviors, beliefs, and thinking patterns that rejuvenate and nourish these strengths.
+I am a strength-based therapist. You have **Strengths**. You have always had strengths. When they are silenced by other intrusive patterns, you doubt you ever had them. Through exploration and fact checking, we will activate behaviors, beliefs, and thinking patterns that rejuvenate and nourish these strengths.
 
 It is my goal to create a **connection** with you where you feel safe and can share with me unwanted patterns. Patterns change. Your patterns will change. Together, we validate those patterns and identify the best way to invite change.
 

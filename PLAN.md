@@ -123,10 +123,15 @@ Verbatim capture: `src/content/source-copy.md` (raw, typos preserved).
 | 8 | Eating Disorders | `teanagers` | `teenagers` |
 | 9 | Home card | `Conscious transformations` + line break + `identifying…` | joined into one sentence |
 | 10 | Licenses & Payments | `Regents, Blue Cross Blue Shield` | `Regence, Blue Cross Blue Shield` (confirmed by Luke) |
+| 11 | Eating Disorders, ARFID | `patients who;` | `patients who:` |
+| 12 | Eating Disorders, ARFID | `fearful ie choking allergies, or medical issues` | `fearful, i.e., choking, allergies, or medical issues` |
+| 13 | Individual Support | `strength based therapist` | `strength-based therapist` |
+| 14 | Home, Trauma card | `trauma induced` | `trauma-induced` (matches her trauma page) |
 
-Left exactly as written (flagged, not obvious enough to touch): `patients who;`,
-`ie choking allergies, or medical issues`, `You have Strengths.`,
-`Select Health`.
+Fixes 11–13 applied 2026-11-04 at Luke's request. Left as written on purpose:
+`You have **Strengths**.` (capital is her emphasis) and `Select Health` (the insurer's
+current name). The ARFID list items 2–3 ("with individuals who…") read a little awkwardly
+after "patients who:", but changing them would mean rewriting her sentences.
 
 ### Her words used as display text (verbatim)
 - Hero headline: "I believe in change." (first sentence of Core Belief)
@@ -148,8 +153,7 @@ Left exactly as written (flagged, not obvious enough to touch): `patients who;`,
 13. **Card small-caps labels** "Email:" / "Phone:" styling is mine; the words are hers
 
 ### Thin or empty pages (not filled)
-- **Trauma**: one paragraph. A `[TODO]` asks if she wants to say more.
-- **Trauma card blurb**: her site shows dots. `[TODO]` on the card.
+- **Trauma**: page text and card blurb from EmRee (2026-11-09). Card blurb's first letter capitalized to match the other cards; link kept on "Lifespan Integration".
 - **About Me**: name, credentials, her About text and "My Dopamine Playlist" (her favorites) are in; only the headshot is a placeholder. Her heading "About EmRee" is not shown (the page title is already "About Me"); her heading "A Few of My Favorite Things" was replaced by "My Dopamine Playlist" at her request. The values on her card (Intentionality · Curiosity · Sustainability) are not used.
 - **Connect With Me**: email and phone only, as on her site, plus the telehealth and encryption lines.
 - **Licenses & Payments**: one optional placeholder for license numbers. No fee or policy placeholders (Luke: not needed).

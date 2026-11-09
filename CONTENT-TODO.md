@@ -9,13 +9,13 @@ to the content file named and delete the matching `<Placeholder …/>`.
 - [x] About text and favorites, in her words (received 2026-11-04; favorites shown as "My Dopamine Playlist" cards, per her request)
 
 ## Home (`src/content/services/trauma.md`)
-- [ ] Trauma card blurb (her site shows only "....................." under Trauma)
+- [x] Trauma card blurb (received 2026-11-09)
 
 ## Licenses & Payments (`src/content/pages/licenses-payments.md`)
 - [x] License numbers per state (from her provider profile, 2026-10-26)
 
 ## Trauma page (`src/content/services/trauma.md`)
-- [ ] Anything more she wants to say (page is one paragraph)
+- [x] New trauma page text from EmRee replaced the old paragraph (2026-11-09)
 
 ## Questions
 - [ ] OK with the typo fixes listed in `PLAN.md`?
