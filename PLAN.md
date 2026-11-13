@@ -153,7 +153,7 @@ after "patients who:", but changing them would mean rewriting her sentences.
 13. **Card small-caps labels** "Email:" / "Phone:" styling is mine; the words are hers
 
 ### Thin or empty pages (not filled)
-- **Trauma**: page text and card blurb from EmRee (2026-11-09). Card blurb's first letter capitalized to match the other cards; link kept on "Lifespan Integration".
+- **Trauma**: page text and card blurb from EmRee (2026-11-09). Card blurb's first letter capitalized to match the other cards; link kept on "Lifespan Integration". Card blurb reworded by EmRee (2026-11-13); her "practice experience" kept as "Practiced experience" and "trauma induced" as "trauma-induced", as before. "neuroplasticity" in the last paragraph is not bold, at her request.
 - **About Me**: name, credentials, her About text and "My Dopamine Playlist" (her favorites) are in; only the headshot is a placeholder. Her heading "About EmRee" is not shown (the page title is already "About Me"); her heading "A Few of My Favorite Things" was replaced by "My Dopamine Playlist" at her request. The values on her card (Intentionality · Curiosity · Sustainability) are not used.
 - **Connect With Me**: email and phone only, as on her site, plus the telehealth and encryption lines.
 - **Licenses & Payments**: one optional placeholder for license numbers. No fee or policy placeholders (Luke: not needed).

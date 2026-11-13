@@ -13,7 +13,7 @@ const { href, title, summary, summaryTodo, tree, treeAlt, index } = Astro.props;
   style={`--reveal-delay:${index * 90}ms`}
 >
   <Image src={tree} alt={treeAlt} width={360} densities={[1, 2]} format="webp" class="h-40 w-auto max-w-[11rem] object-contain transition-transform duration-500 ease-[var(--ease-calm)] motion-safe:group-hover:scale-[1.04]" loading="lazy" />
-  <h3 class="mt-6 text-h3 transition-colors group-hover:text-teal">{title}</h3>
+  <h3 class="mt-6 text-h3 transition-colors group-hover:text-teal lg:min-h-[2lh]">{title}</h3>
   {summary ? (
     <p class="mt-3 flex-1 leading-relaxed text-ink-soft">{summary}</p>
   ) : (
